@@ -1,5 +1,4 @@
-﻿using ClientManagement.Backend.Client.Models;
-using ClientManagement.Backend.Logic.Models;
+﻿using ClientManagement.Backend.Logic.Models;
 using ClientManagement.Backend.Logic.ServiceReference1;
 using System;
 using System.Collections.Generic;

@@ -341,6 +341,9 @@ namespace ClientManagement.Backend.Logic.ServiceReference1 {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PhoneNumberField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserIdField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -425,6 +428,19 @@ namespace ClientManagement.Backend.Logic.ServiceReference1 {
                 if ((object.ReferenceEquals(this.PhoneNumberField, value) != true)) {
                     this.PhoneNumberField = value;
                     this.RaisePropertyChanged("PhoneNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserIdField, value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
                 }
             }
         }
@@ -564,11 +580,17 @@ namespace ClientManagement.Backend.Logic.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserNames", ReplyAction="http://tempuri.org/IService1/GetUserNamesResponse")]
         System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.UserDAO[]> GetUserNamesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
-        void Login(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangePassword", ReplyAction="http://tempuri.org/IService1/ChangePasswordResponse")]
+        bool ChangePassword(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangePassword", ReplyAction="http://tempuri.org/IService1/ChangePasswordResponse")]
+        System.Threading.Tasks.Task<bool> ChangePasswordAsync(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
-        System.Threading.Tasks.Task LoginAsync(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user);
+        bool Login(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
+        System.Threading.Tasks.Task<bool> LoginAsync(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetClients", ReplyAction="http://tempuri.org/IService1/GetClientsResponse")]
         ClientManagement.Backend.Logic.ServiceReference1.ClientDAO[] GetClients();
@@ -581,6 +603,12 @@ namespace ClientManagement.Backend.Logic.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAddress", ReplyAction="http://tempuri.org/IService1/GetAddressResponse")]
         System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.AddressDAO[]> GetAddressAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddClient", ReplyAction="http://tempuri.org/IService1/AddClientResponse")]
+        bool AddClient(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddClient", ReplyAction="http://tempuri.org/IService1/AddClientResponse")]
+        System.Threading.Tasks.Task<bool> AddClientAsync(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -626,11 +654,19 @@ namespace ClientManagement.Backend.Logic.ServiceReference1 {
             return base.Channel.GetUserNamesAsync();
         }
         
-        public void Login(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user) {
-            base.Channel.Login(user);
+        public bool ChangePassword(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user) {
+            return base.Channel.ChangePassword(user);
         }
         
-        public System.Threading.Tasks.Task LoginAsync(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user) {
+        public System.Threading.Tasks.Task<bool> ChangePasswordAsync(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user) {
+            return base.Channel.ChangePasswordAsync(user);
+        }
+        
+        public bool Login(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user) {
+            return base.Channel.Login(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LoginAsync(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user) {
             return base.Channel.LoginAsync(user);
         }
         
@@ -648,6 +684,14 @@ namespace ClientManagement.Backend.Logic.ServiceReference1 {
         
         public System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.AddressDAO[]> GetAddressAsync() {
             return base.Channel.GetAddressAsync();
+        }
+        
+        public bool AddClient(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client) {
+            return base.Channel.AddClient(client);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddClientAsync(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client) {
+            return base.Channel.AddClientAsync(client);
         }
     }
 }

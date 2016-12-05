@@ -19,5 +19,7 @@ namespace ClientManagement.Backend.Logic.Models
       public string Email { get; set; }
       [DataMember]
       public AddressDTO Address { get; set; }
+      [DataMember]
+      public string UserId { get; set; }
    }
 }

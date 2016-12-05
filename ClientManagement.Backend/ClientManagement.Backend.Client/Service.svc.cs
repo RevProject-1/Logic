@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using ClientManagement.Backend.Logic.Models;
+using ClientManagement.Backend.Logic;
 
 namespace ClientManagement.Backend.Client
 {
@@ -13,6 +14,8 @@ namespace ClientManagement.Backend.Client
    // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
    public class Service1 : IService
    {
+      private appLogic logic = new appLogic();
+
       public bool deleteAddress(AddressDTO address)
       {
          throw new NotImplementedException();
@@ -48,27 +51,27 @@ namespace ClientManagement.Backend.Client
          throw new NotImplementedException();
       }
 
+      public List<AddressDTO> getAddressDTO(string street, string city, string state, string zip)
+      {
+         throw new NotImplementedException();
+      }
+
+      public List<AddressDTO> getAddressDTOByStreet(string street)
+      {
+         throw new NotImplementedException();
+      }
+
+      public List<AddressDTO> getAddressDTOByStreetandCity(string street, string city)
+      {
+         throw new NotImplementedException();
+      }
+
+      public List<AddressDTO> getAddressDTOByStreetandCityandState(string street, string city, string state)
+      {
+         throw new NotImplementedException();
+      }
+
       public List<AddressDTO> getAddressDTOs()
-      {
-         throw new NotImplementedException();
-      }
-
-      public List<AddressDTO> getAddressDTOs(string street)
-      {
-         throw new NotImplementedException();
-      }
-
-      public List<AddressDTO> getAddressDTOs(string street, string city)
-      {
-         throw new NotImplementedException();
-      }
-
-      public List<AddressDTO> getAddressDTOs(string street, string city, string state)
-      {
-         throw new NotImplementedException();
-      }
-
-      public List<AddressDTO> getAddressDTOs(string street, string city, string state, string zip)
       {
          throw new NotImplementedException();
       }
@@ -93,12 +96,12 @@ namespace ClientManagement.Backend.Client
          throw new NotImplementedException();
       }
 
-      public List<AspNetRoles> getAspNetRoles(int Id)
+      public List<AspNetRoles> getAspNetRolesById(int Id)
       {
          throw new NotImplementedException();
       }
 
-      public List<AspNetRoles> getAspNetRoles(string name)
+      public List<AspNetRoles> getAspNetRolesByName(string name)
       {
          throw new NotImplementedException();
       }
@@ -108,12 +111,17 @@ namespace ClientManagement.Backend.Client
          throw new NotImplementedException();
       }
 
-      public List<AspNetUserClaims> getAspNetUserClaims(int Id)
+      public List<AspNetUserClaims> getAspNetUserClaimsById(int Id)
       {
          throw new NotImplementedException();
       }
 
-      public List<AspNetUserClaims> getAspNetUserClaims(string userId, string claimType, string claimValue)
+      public List<AspNetUserClaims> getAspNetUserClaimsByUserIdandClaimtypeandClaimValue(string userId, string claimType, string claimValue)
+      {
+         throw new NotImplementedException();
+      }
+
+      public List<AspNetUserLogins> getAspNetUserLogin(string loginProvider, string providerKey, string userId)
       {
          throw new NotImplementedException();
       }
@@ -123,7 +131,7 @@ namespace ClientManagement.Backend.Client
          throw new NotImplementedException();
       }
 
-      public List<AspNetUserLogins> getAspNetUserLogins(string loginProvider, string providerKey, string userId)
+      public List<AspNetUserRoles> getAspNetUserRole(string userId, string roleId)
       {
          throw new NotImplementedException();
       }
@@ -133,29 +141,19 @@ namespace ClientManagement.Backend.Client
          throw new NotImplementedException();
       }
 
-      public List<AspNetUserRoles> getAspNetUserRoles(string userId, string roleId)
-      {
-         throw new NotImplementedException();
-      }
-
       public List<AspNetUsers> getAspNetUsers()
       {
          throw new NotImplementedException();
       }
 
-      public List<AspNetUsers> getAspNetUsers(string name)
+      public List<AspNetUsers> getAspNetUsersByName(string name)
       {
          throw new NotImplementedException();
       }
 
       public List<ClientDTO> getClients()
       {
-         throw new NotImplementedException();
-      }
-
-      public List<ClientDTO> getClients(string name)
-      {
-         throw new NotImplementedException();
+         return logic.getClients();
       }
 
       public List<ClientDTO> getClientsByAddressId(int AddressId)
@@ -164,6 +162,11 @@ namespace ClientManagement.Backend.Client
       }
 
       public List<ClientDTO> getClientsByEmail(string email)
+      {
+         throw new NotImplementedException();
+      }
+
+      public List<ClientDTO> getClientsByName(string name)
       {
          throw new NotImplementedException();
       }

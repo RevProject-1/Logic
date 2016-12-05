@@ -75,6 +75,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app.config" />
+    <None Include="Properties\PublishProfiles\ClientManagement.Backend.Client.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

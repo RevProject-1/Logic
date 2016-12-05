@@ -19,6 +19,12 @@
   <wsdl:message name="IService1_GetUserNames_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserNamesResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_Login_InputMessage">
     <wsdl:part name="parameters" element="tns:Login" />
   </wsdl:message>
@@ -37,6 +43,12 @@
   <wsdl:message name="IService1_GetAddress_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAddressResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_AddClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddClient" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddClientResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Register">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Register" message="tns:IService1_Register_InputMessage" />
@@ -45,6 +57,10 @@
     <wsdl:operation name="GetUserNames">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUserNames" message="tns:IService1_GetUserNames_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUserNamesResponse" message="tns:IService1_GetUserNames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ChangePassword" message="tns:IService1_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ChangePasswordResponse" message="tns:IService1_ChangePassword_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Login" message="tns:IService1_Login_InputMessage" />
@@ -57,6 +73,10 @@
     <wsdl:operation name="GetAddress">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAddress" message="tns:IService1_GetAddress_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAddressResponse" message="tns:IService1_GetAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddClient" message="tns:IService1_AddClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddClientResponse" message="tns:IService1_AddClient_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -72,6 +92,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetUserNames">
       <soap:operation soapAction="http://tempuri.org/IService1/GetUserNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/IService1/ChangePassword" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -99,6 +128,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAddress">
       <soap:operation soapAction="http://tempuri.org/IService1/GetAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddClient">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddClient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

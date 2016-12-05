@@ -72,32 +72,32 @@ namespace ClientManagement.Backend.Logic
       #endregion
 
       #region get AspNetRoles functions
-      public List<AspNetRoles> getAspNetRoles();
+      //public List<AspNetRoles> getAspNetRoles();
 
-      public List<AspNetRoles> getAspNetRoles(string name);
+      //public List<AspNetRoles> getAspNetRoles(string name);
 
-      public List<AspNetRoles> getAspNetRoles(int Id);
-      #endregion
+      //public List<AspNetRoles> getAspNetRoles(int Id);
+      //#endregion
 
-      #region get AspNetUserClaims functions
-      public List<AspNetUserClaims> getAspNetUserClaims();
+      //#region get AspNetUserClaims functions
+      //public List<AspNetUserClaims> getAspNetUserClaims();
 
-      public List<AspNetUserClaims> getAspNetUserClaims(int Id);
+      //public List<AspNetUserClaims> getAspNetUserClaims(int Id);
 
-      public List<AspNetUserClaims> getAspNetUserClaims(string userId, string claimType, string claimValue);
+      //public List<AspNetUserClaims> getAspNetUserClaims(string userId, string claimType, string claimValue);
       #endregion
 
       #region get AspNetUserLogins functions
-      public List<AspNetUserLogins> getAspNetUserLogins();
+      //public List<AspNetUserLogins> getAspNetUserLogins();
 
-      public List<AspNetUserLogins> getAspNetUserLogins(string loginProvider, string providerKey, string userId);
+      //public List<AspNetUserLogins> getAspNetUserLogins(string loginProvider, string providerKey, string userId);
       #endregion
 
       #region AspNetUserRoles functions
 
-      public List<AspNetUserRoles> getAspNetUserRoles();
+      //public List<AspNetUserRoles> getAspNetUserRoles();
 
-      public List<AspNetUserRoles> getAspNetUserRoles(string userId, string roleId);
+      //public List<AspNetUserRoles> getAspNetUserRoles(string userId, string roleId);
 
       #endregion
 
@@ -115,7 +115,11 @@ namespace ClientManagement.Backend.Logic
          return newlist;
       }
 
-      public List<AddressDTO> getAddressDTOs(string street, string city, string state, string zip);
+      public List<AddressDTO> getAddressDTOs(string street, string city, string state, string zip)
+      {
+         var list = getAddressDTOs().Where(m => m.Street.ToLower() == street.ToLower() && m.City.ToLower() == city.ToLower() && m.State.ToLower() == state.ToLower() && m.Zip==zip) as List<AddressDTO>;
+         return list;
+      }
 
       public List<AddressDTO> getAddressDTOs(string street)
       {
@@ -125,11 +129,16 @@ namespace ClientManagement.Backend.Logic
 
       public List<AddressDTO> getAddressDTOs(string street, string city)
       {
-         
+         var list = getAddressDTOs().Where(m => m.Street.ToLower() == street.ToLower() && m.City.ToLower()==city.ToLower()) as List<AddressDTO>;
+         return list;
 
       }
 
-      public List<AddressDTO> getAddressDTOs(string street, string city, string state);
+      public List<AddressDTO> getAddressDTOs(string street, string city, string state)
+      {
+         var list = getAddressDTOs().Where(m => m.Street.ToLower() == street.ToLower() && m.City.ToLower() == city.ToLower() && m.State.ToLower()==state.ToLower()) as List<AddressDTO>;
+         return list;
+      }
 
       public List<AddressDTO> getAddressDTOsByZip(string zip)
       {
@@ -155,62 +164,62 @@ namespace ClientManagement.Backend.Logic
 
       #region Insert Functions
 
-      public bool insertAspNetUsers(AspNetUsers user);
+      //public bool insertAspNetUsers(AspNetUsers user);
 
-      public bool insertClients(ClientDTO client);
+      //public bool insertClients(ClientDTO client);
 
-      public bool insertAspNetRoles(AspNetRoles role);
+      //public bool insertAspNetRoles(AspNetRoles role);
 
-      public bool insertAspNetUserClaims(AspNetUserClaims claim);
+      //public bool insertAspNetUserClaims(AspNetUserClaims claim);
 
-      public bool insertAspNetUserLogins(AspNetUserLogins login);
+      //public bool insertAspNetUserLogins(AspNetUserLogins login);
 
-      public bool insertAspNetUserRoles(AspNetUserRoles userRole);
+      //public bool insertAspNetUserRoles(AspNetUserRoles userRole);
 
-      public bool insertAddressDTOs(AddressDTO address);
+      //public bool insertAddressDTOs(AddressDTO address);
 
       #endregion
 
       #region delete functions
 
-      public bool deleteAddress(AddressDTO address);
+      //public bool deleteAddress(AddressDTO address);
 
-      public bool deleteAspNetRole(AspNetUserRoles role);
+      //public bool deleteAspNetRole(AspNetUserRoles role);
 
-      public bool deleteAspNetUserClaim(AspNetUserClaims claim);
+      //public bool deleteAspNetUserClaim(AspNetUserClaims claim);
 
-      public bool deleteAspNetUserLogin(AspNetUserLogins login);
+      //public bool deleteAspNetUserLogin(AspNetUserLogins login);
 
-      public bool deleteAspNetUserRoles(AspNetUserRoles userRole);
+      //public bool deleteAspNetUserRoles(AspNetUserRoles userRole);
 
-      public bool deleteAspNetUsers(AspNetUsers user);
+      //public bool deleteAspNetUsers(AspNetUsers user);
 
-      public bool deleteClient(ClientDTO client);
+      //public bool deleteClient(ClientDTO client);
 
       #endregion
 
       #region update functions
 
-      public bool updateAddress(AddressDTO address);
+      //public bool updateAddress(AddressDTO address);
 
-      public bool updateAspNetRole(AspNetUserRoles role);
+      //public bool updateAspNetRole(AspNetUserRoles role);
 
-      public bool updateAspNetUserClaim(AspNetUserClaims claim);
+      //public bool updateAspNetUserClaim(AspNetUserClaims claim);
 
-      public bool updateAspNetUserLogin(AspNetUserLogins login);
+      //public bool updateAspNetUserLogin(AspNetUserLogins login);
 
-      public bool updateAspNetUserRoles(AspNetUserRoles userRole);
+      //public bool updateAspNetUserRoles(AspNetUserRoles userRole);
 
-      public bool updateAspNetUsers(AspNetUsers user);
+      //public bool updateAspNetUsers(AspNetUsers user);
 
-      public bool updateClient(ClientDTO client);
+      //public bool updateClient(ClientDTO client);
 
 
       #endregion
 
       public void login(AspNetUsers user)
       {
-         db.Login(new Mapping.AspNetUserMapper().mapToUserDAO(user));
+         db.Login(Mapping.AspNetUserMapper.mapToUserDAO(user));
       }
    }
 }

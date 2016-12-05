@@ -20,7 +20,7 @@ namespace ClientManagement.Backend.Client
       List<AspNetUsers> getAspNetUsers();
 
       [OperationContract]
-      List<AspNetUsers> getAspNetUsers(string name);
+      List<AspNetUsers> getAspNetUsersByName(string name);
       #endregion
 
       #region get client functions
@@ -28,7 +28,7 @@ namespace ClientManagement.Backend.Client
       List<ClientDTO> getClients();
 
       [OperationContract]
-      List<ClientDTO> getClients(string name);
+      List<ClientDTO> getClientsByName(string name);
 
       [OperationContract]
       List<ClientDTO> getClientsByPhoneNumber(string phoneNumber);
@@ -45,10 +45,10 @@ namespace ClientManagement.Backend.Client
       List<AspNetRoles> getAspNetRoles();
 
       [OperationContract]
-      List<AspNetRoles> getAspNetRoles(string name);
+      List<AspNetRoles> getAspNetRolesByName(string name);
 
       [OperationContract]
-      List<AspNetRoles> getAspNetRoles(int Id);
+      List<AspNetRoles> getAspNetRolesById(int Id);
       #endregion
 
       #region get AspNetUserClaims functions
@@ -56,10 +56,10 @@ namespace ClientManagement.Backend.Client
       List<AspNetUserClaims> getAspNetUserClaims();
 
       [OperationContract]
-      List<AspNetUserClaims> getAspNetUserClaims(int Id);
+      List<AspNetUserClaims> getAspNetUserClaimsById(int Id);
 
       [OperationContract]
-      List<AspNetUserClaims> getAspNetUserClaims(string userId, string claimType, string claimValue);
+      List<AspNetUserClaims> getAspNetUserClaimsByUserIdandClaimtypeandClaimValue(string userId, string claimType, string claimValue);
       #endregion
 
       #region get AspNetUserLogins functions
@@ -67,7 +67,7 @@ namespace ClientManagement.Backend.Client
       List<AspNetUserLogins> getAspNetUserLogins();
 
       [OperationContract]
-      List<AspNetUserLogins> getAspNetUserLogins(string loginProvider,string providerKey,string userId);
+      List<AspNetUserLogins> getAspNetUserLogin(string loginProvider,string providerKey,string userId);
       #endregion
 
       #region AspNetUserRoles functions
@@ -76,7 +76,7 @@ namespace ClientManagement.Backend.Client
       List<AspNetUserRoles> getAspNetUserRoles();
 
       [OperationContract]
-      List<AspNetUserRoles> getAspNetUserRoles(string userId, string roleId);
+      List<AspNetUserRoles> getAspNetUserRole(string userId, string roleId);
 
       #endregion
 
@@ -86,16 +86,16 @@ namespace ClientManagement.Backend.Client
       List<AddressDTO> getAddressDTOs();
 
       [OperationContract]
-      List<AddressDTO> getAddressDTOs(string street, string city, string state, string zip);
+      List<AddressDTO> getAddressDTO(string street, string city, string state, string zip);
 
       [OperationContract]
-      List<AddressDTO> getAddressDTOs(string street);
+      List<AddressDTO> getAddressDTOByStreet(string street);
 
       [OperationContract]
-      List<AddressDTO> getAddressDTOs(string street, string city);
+      List<AddressDTO> getAddressDTOByStreetandCity(string street, string city);
 
       [OperationContract]
-      List<AddressDTO> getAddressDTOs(string street, string city, string state);
+      List<AddressDTO> getAddressDTOByStreetandCityandState(string street, string city, string state);
 
       [OperationContract]
       List<AddressDTO> getAddressDTOsByZip(string zip);

@@ -186,7 +186,7 @@ namespace ClientManagement.Backend.Client
 
       #endregion
 
-
+      void login(AspNetUsers user);
    }
 }
 

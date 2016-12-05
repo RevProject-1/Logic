@@ -36,7 +36,7 @@ namespace ClientManagement.Backend.Logic.Models
       [DataMember]
       public bool TwoFactorEnabled { get; set; }
       [DataMember]
-      public DateTime LockoutEndDateUtc { get; set; }
+      public DateTime? LockoutEndDateUtc { get; set; }
       [DataMember]
       public bool LockoutEnabled { get; set; }
       [DataMember]

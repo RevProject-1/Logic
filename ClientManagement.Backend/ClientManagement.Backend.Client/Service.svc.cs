@@ -208,6 +208,11 @@ namespace ClientManagement.Backend.Client
          throw new NotImplementedException();
       }
 
+      public void login(AspNetUsers user)
+      {
+         throw new NotImplementedException();
+      }
+
       public bool updateAddress(AddressDTO address)
       {
          throw new NotImplementedException();

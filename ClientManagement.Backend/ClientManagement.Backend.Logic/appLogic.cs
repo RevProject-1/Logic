@@ -4,82 +4,150 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using ClientManagement.Backend.Logic.ServiceReference1;
 
 namespace ClientManagement.Backend.Logic
 {
+   
     public class appLogic
     {
+      private ServiceReference1.Service1Client db = new Service1Client();
+      
       #region get functions
 
       #region get AspNetUsers functions
-      List<AspNetUsers> getAspNetUsers()
+      public List<AspNetUsers> getAspNetUsers()
       {
-         
+         var result = db.GetUserNames();
+         var newList = new List<AspNetUsers>();
+         foreach (var item in result)
+         {
+            newList.Add(Mapping.AspNetUserMapper.mapToAspNetUsers(item));
+         }
+         return newList;
       }
 
-      List<AspNetUsers> getAspNetUsers(string name);
+      public List<AspNetUsers> getAspNetUsers(string name)
+      {
+         var newList = getAspNetUsers().Where(m => m.UserName.ToLower() == name.ToLower()) as List<AspNetUsers>;
+         return newList;
+      }
       #endregion
 
       #region get client functions
-      List<ClientDTO> getClients();
+      public List<ClientDTO> getClients()
+      {
+         var clients = new List<ClientDTO>();
+         var list = db.GetClients();
+         foreach (var item in list)
+         {
+            clients.Add(Mapping.ClientMapper.MapToClientDTO(item));
+         }
+         return clients;
+      }
 
-      List<ClientDTO> getClients(string name);
+      public List<ClientDTO> getClients(string name)
+      {
+         var list=getClients().Where(m => m.Name.ToLower() == name.ToLower()) as List<ClientDTO>;
+         return list;
+      }
 
-      List<ClientDTO> getClientsByPhoneNumber(string phoneNumber);
+      public List<ClientDTO> getClientsByPhoneNumber(string phoneNumber)
+      {
+         var list = getClients().Where(m => m.PhoneNumber == phoneNumber) as List<ClientDTO>;
+         return list;
+      }
 
-      List<ClientDTO> getClientsByEmail(string email);
+      public List<ClientDTO> getClientsByEmail(string email)
+      {
+         var list = getClients().Where(m => m.Email.ToLower() == email.ToLower()) as List<ClientDTO>;
+         return list;
+      }
 
-      List<ClientDTO> getClientsByAddressId(int AddressId);
+      public List<ClientDTO> getClientsByAddressId(int AddressId)
+      {
+         var list = getClients().Where(m => m.AddressID == AddressId) as List<ClientDTO>;
+         return list;
+      }
       #endregion
 
       #region get AspNetRoles functions
-      List<AspNetRoles> getAspNetRoles();
+      public List<AspNetRoles> getAspNetRoles();
 
-      List<AspNetRoles> getAspNetRoles(string name);
+      public List<AspNetRoles> getAspNetRoles(string name);
 
-      List<AspNetRoles> getAspNetRoles(int Id);
+      public List<AspNetRoles> getAspNetRoles(int Id);
       #endregion
 
       #region get AspNetUserClaims functions
-      List<AspNetUserClaims> getAspNetUserClaims();
+      public List<AspNetUserClaims> getAspNetUserClaims();
 
-      List<AspNetUserClaims> getAspNetUserClaims(int Id);
+      public List<AspNetUserClaims> getAspNetUserClaims(int Id);
 
-      List<AspNetUserClaims> getAspNetUserClaims(string userId, string claimType, string claimValue);
+      public List<AspNetUserClaims> getAspNetUserClaims(string userId, string claimType, string claimValue);
       #endregion
 
       #region get AspNetUserLogins functions
-      List<AspNetUserLogins> getAspNetUserLogins();
+      public List<AspNetUserLogins> getAspNetUserLogins();
 
-      List<AspNetUserLogins> getAspNetUserLogins(string loginProvider, string providerKey, string userId);
+      public List<AspNetUserLogins> getAspNetUserLogins(string loginProvider, string providerKey, string userId);
       #endregion
 
       #region AspNetUserRoles functions
 
-      List<AspNetUserRoles> getAspNetUserRoles();
+      public List<AspNetUserRoles> getAspNetUserRoles();
 
-      List<AspNetUserRoles> getAspNetUserRoles(string userId, string roleId);
+      public List<AspNetUserRoles> getAspNetUserRoles(string userId, string roleId);
 
       #endregion
 
       #region get AddressDTO functions
 
-      List<AddressDTO> getAddressDTOs();
+      public List<AddressDTO> getAddressDTOs()
+      {
+         var list = db.GetAddress();
+         List<AddressDTO> newlist = new List<AddressDTO>();
+         foreach (var item in list)
+         {
+            newlist.Add(Mapping.AddressMapper.MapToAddressDTO(item));
+            
+         }
+         return newlist;
+      }
 
-      List<AddressDTO> getAddressDTOs(string street, string city, string state, string zip);
+      public List<AddressDTO> getAddressDTOs(string street, string city, string state, string zip);
 
-      List<AddressDTO> getAddressDTOs(string street);
+      public List<AddressDTO> getAddressDTOs(string street)
+      {
+         var list = getAddressDTOs().Where(m =>m.Street.ToLower()==street.ToLower()) as List<AddressDTO>;
+         return list;
+      }
 
-      List<AddressDTO> getAddressDTOs(string street, string city);
+      public List<AddressDTO> getAddressDTOs(string street, string city)
+      {
+         
 
-      List<AddressDTO> getAddressDTOs(string street, string city, string state);
+      }
 
-      List<AddressDTO> getAddressDTOsByZip(string zip);
+      public List<AddressDTO> getAddressDTOs(string street, string city, string state);
 
-      List<AddressDTO> getAddressDTOsByState(string state);
+      public List<AddressDTO> getAddressDTOsByZip(string zip)
+      {
+         var list = getAddressDTOs().Where(m => m.Zip == zip) as List<AddressDTO>;
+         return list;
+      }
 
-      List<AddressDTO> getAddressDTOsByCity(string city);
+      public List<AddressDTO> getAddressDTOsByState(string state)
+      {
+         var list = getAddressDTOs().Where(m => m.State.ToLower() == state.ToLower()) as List<AddressDTO>;
+         return list;
+      }
+
+      public List<AddressDTO> getAddressDTOsByCity(string city)
+      {
+         var list = getAddressDTOs().Where(m => m.City.ToLower() == city.ToLower()) as List<AddressDTO>;
+         return list;
+      }
 
       #endregion
 
@@ -87,57 +155,62 @@ namespace ClientManagement.Backend.Logic
 
       #region Insert Functions
 
-      bool insertAspNetUsers(AspNetUsers user);
+      public bool insertAspNetUsers(AspNetUsers user);
 
-      bool insertClients(ClientDTO client);
+      public bool insertClients(ClientDTO client);
 
-      bool insertAspNetRoles(AspNetRoles role);
+      public bool insertAspNetRoles(AspNetRoles role);
 
-      bool insertAspNetUserClaims(AspNetUserClaims claim);
+      public bool insertAspNetUserClaims(AspNetUserClaims claim);
 
-      bool insertAspNetUserLogins(AspNetUserLogins login);
+      public bool insertAspNetUserLogins(AspNetUserLogins login);
 
-      bool insertAspNetUserRoles(AspNetUserRoles userRole);
+      public bool insertAspNetUserRoles(AspNetUserRoles userRole);
 
-      bool insertAddressDTOs(AddressDTO address);
+      public bool insertAddressDTOs(AddressDTO address);
 
       #endregion
 
       #region delete functions
 
-      bool deleteAddress(AddressDTO address);
+      public bool deleteAddress(AddressDTO address);
 
-      bool deleteAspNetRole(AspNetUserRoles role);
+      public bool deleteAspNetRole(AspNetUserRoles role);
 
-      bool deleteAspNetUserClaim(AspNetUserClaims claim);
+      public bool deleteAspNetUserClaim(AspNetUserClaims claim);
 
-      bool deleteAspNetUserLogin(AspNetUserLogins login);
+      public bool deleteAspNetUserLogin(AspNetUserLogins login);
 
-      bool deleteAspNetUserRoles(AspNetUserRoles userRole);
+      public bool deleteAspNetUserRoles(AspNetUserRoles userRole);
 
-      bool deleteAspNetUsers(AspNetUsers user);
+      public bool deleteAspNetUsers(AspNetUsers user);
 
-      bool deleteClient(ClientDTO client);
+      public bool deleteClient(ClientDTO client);
 
       #endregion
 
       #region update functions
 
-      bool updateAddress(AddressDTO address);
+      public bool updateAddress(AddressDTO address);
 
-      bool updateAspNetRole(AspNetUserRoles role);
+      public bool updateAspNetRole(AspNetUserRoles role);
 
-      bool updateAspNetUserClaim(AspNetUserClaims claim);
+      public bool updateAspNetUserClaim(AspNetUserClaims claim);
 
-      bool updateAspNetUserLogin(AspNetUserLogins login);
+      public bool updateAspNetUserLogin(AspNetUserLogins login);
 
-      bool updateAspNetUserRoles(AspNetUserRoles userRole);
+      public bool updateAspNetUserRoles(AspNetUserRoles userRole);
 
-      bool updateAspNetUsers(AspNetUsers user);
+      public bool updateAspNetUsers(AspNetUsers user);
 
-      bool updateClient(ClientDTO client);
+      public bool updateClient(ClientDTO client);
 
 
       #endregion
+
+      public void login(AspNetUsers user)
+      {
+         db.Login(new Mapping.AspNetUserMapper().mapToUserDAO(user));
+      }
    }
 }

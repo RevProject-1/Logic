@@ -12,10 +12,12 @@ namespace ClientManagement.Backend.Logic.Models
       [DataMember]
       public string Name { get; set; }
       [DataMember]
-      public int AddressID { get; set; }
+      public int? AddressID { get; set; }
       [DataMember]
       public string PhoneNumber { get; set; }
       [DataMember]
       public string Email { get; set; }
+      [DataMember]
+      public AddressDTO Address { get; set; }
    }
 }

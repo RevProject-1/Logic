@@ -62,4 +62,57 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfAddressDAO" nillable="true" type="tns:ArrayOfAddressDAO" />
+  <xs:complexType name="ServiceTypeDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rate" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceTypeDAO" nillable="true" type="tns:ServiceTypeDAO" />
+  <xs:complexType name="ArrayOfServiceTypeDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceTypeDAO" nillable="true" type="tns:ServiceTypeDAO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServiceTypeDAO" nillable="true" type="tns:ArrayOfServiceTypeDAO" />
+  <xs:complexType name="JobDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Client" nillable="true" type="tns:ClientDAO" />
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="Complete" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EstimatedDuration" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Expense" nillable="true" type="tns:ExpenseDAO" />
+      <xs:element minOccurs="0" name="ExpenseID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceType" nillable="true" type="tns:ServiceTypeDAO" />
+      <xs:element minOccurs="0" name="ServiceTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:UserDAO" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JobDAO" nillable="true" type="tns:JobDAO" />
+  <xs:complexType name="ExpenseDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cost" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExpenseDAO" nillable="true" type="tns:ExpenseDAO" />
+  <xs:complexType name="ArrayOfJobDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JobDAO" nillable="true" type="tns:JobDAO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJobDAO" nillable="true" type="tns:ArrayOfJobDAO" />
+  <xs:complexType name="ArrayOfExpenseDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExpenseDAO" nillable="true" type="tns:ExpenseDAO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExpenseDAO" nillable="true" type="tns:ArrayOfExpenseDAO" />
 </xs:schema>

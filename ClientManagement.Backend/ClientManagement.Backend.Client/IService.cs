@@ -24,6 +24,8 @@ namespace ClientManagement.Backend.Client
       #endregion
 
       #region get client functions
+      List<ClientDTO> getClientsforUser(AspNetUsers user);
+
       [OperationContract]
       List<ClientDTO> getClients();
 
@@ -108,9 +110,18 @@ namespace ClientManagement.Backend.Client
 
       #endregion
 
+      [OperationContract]
+      List<jobDTO> getjobs();
+
+      [OperationContract]
+      List<ServiceTypeDTO> getServiceTypes();
+
       #endregion
 
       #region Insert Functions
+
+      [OperationContract]
+      bool insertJob(jobDTO job);
 
       [OperationContract]
       bool insertAspNetUsers(AspNetUsers user);
@@ -133,9 +144,18 @@ namespace ClientManagement.Backend.Client
       [OperationContract]
       bool insertAddressDTOs(AddressDTO address);
 
+      [OperationContract]
+      bool insertServiceType(ServiceTypeDTO type);
+
       #endregion
 
       #region delete functions
+
+      [OperationContract]
+      bool deleteJob(jobDTO job);
+
+      [OperationContract]
+      bool deleteServiceType(ServiceTypeDTO type);
 
       [OperationContract]
       bool deleteAddress(AddressDTO address);
@@ -161,6 +181,12 @@ namespace ClientManagement.Backend.Client
       #endregion
 
       #region update functions
+
+      [OperationContract]
+      bool updateJob(jobDTO job);
+
+      [OperationContract]
+      bool updateServiceType(ServiceTypeDTO type);
 
       [OperationContract]
       bool updateAddress(AddressDTO address);

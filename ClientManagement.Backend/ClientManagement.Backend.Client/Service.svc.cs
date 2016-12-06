@@ -7,6 +7,7 @@ using System.ServiceModel.Web;
 using System.Text;
 using ClientManagement.Backend.Logic.Models;
 using ClientManagement.Backend.Logic;
+using ClientManagement.Backend.Logic.ServiceReference1;
 
 namespace ClientManagement.Backend.Client
 {
@@ -17,6 +18,17 @@ namespace ClientManagement.Backend.Client
       private appLogic logic = new appLogic();
 
       #region delete functions
+
+      public bool deleteJob(jobDTO job)
+      {
+         return logic.deleteJob(job);
+      }
+
+      public bool deleteServiceType(ServiceTypeDTO type)
+      {
+         return logic.deleteServiceType(type);
+      }
+
       public bool deleteAddress(AddressDTO address)
       {
          throw new NotImplementedException();
@@ -171,6 +183,12 @@ namespace ClientManagement.Backend.Client
       #endregion
 
       #region get client functions
+
+      public List<ClientDTO> getClientsforUser(AspNetUsers user)
+      {
+         return logic.getClientsForUser(user);
+      }
+
       public List<ClientDTO> getClients()
       {
          return logic.getClients();
@@ -197,7 +215,29 @@ namespace ClientManagement.Backend.Client
       }
       #endregion
 
+      
+      public List<jobDTO> getjobs()
+      {
+         return logic.getJobs().ToList();
+      }
+
+      public List<ServiceTypeDTO> getServiceTypes()
+      {
+         return logic.getServiceTypes();
+      }
+
       #region insert functions
+
+      public bool insertJob(jobDTO job)
+      {
+         return logic.insertJob(job);
+      }
+
+      public bool insertServiceType(ServiceTypeDTO type)
+      {
+         return logic.insertServiceType(type);
+      }
+
       public bool insertAddressDTOs(AddressDTO address)
       {
          throw new NotImplementedException();
@@ -240,6 +280,12 @@ namespace ClientManagement.Backend.Client
       }
 
       #region update functions
+
+      public bool updateServiceType(ServiceTypeDTO type)
+      {
+         return logic.updateServiceType(type);
+      }
+
       public bool updateAddress(AddressDTO address)
       {
          throw new NotImplementedException();
@@ -267,13 +313,24 @@ namespace ClientManagement.Backend.Client
 
       public bool updateAspNetUsers(AspNetUsers user)
       {
-         throw new NotImplementedException();
+         return logic.updateAspNetUsers(user);
       }
 
       public bool updateClient(ClientDTO client)
       {
          return logic.updateClient(client);
       }
+
+      public bool updateJob(jobDTO job)
+      {
+         return logic.updateJob(job);
+      }
+
+     
+
+
+
+
       #endregion
 
 

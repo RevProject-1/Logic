@@ -9,7 +9,86 @@
 //------------------------------------------------------------------------------
 
 namespace ClientManagement.Backend.Client.ServiceReference1 {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ExpenseDAO", Namespace="http://schemas.datacontract.org/2004/07/ClientManagement.DbService.Models")]
+    [System.SerializableAttribute()]
+    public partial class ExpenseDAO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal CostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Cost {
+            get {
+                return this.CostField;
+            }
+            set {
+                if ((this.CostField.Equals(value) != true)) {
+                    this.CostField = value;
+                    this.RaisePropertyChanged("Cost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
@@ -68,6 +147,84 @@ namespace ClientManagement.Backend.Client.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteClient", ReplyAction="http://tempuri.org/IService1/DeleteClientResponse")]
         System.Threading.Tasks.Task<bool> DeleteClientAsync(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUser", ReplyAction="http://tempuri.org/IService1/UpdateUserResponse")]
+        bool UpdateUser(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUser", ReplyAction="http://tempuri.org/IService1/UpdateUserResponse")]
+        System.Threading.Tasks.Task<bool> UpdateUserAsync(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddType", ReplyAction="http://tempuri.org/IService1/AddTypeResponse")]
+        bool AddType(ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO service);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddType", ReplyAction="http://tempuri.org/IService1/AddTypeResponse")]
+        System.Threading.Tasks.Task<bool> AddTypeAsync(ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO service);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateType", ReplyAction="http://tempuri.org/IService1/UpdateTypeResponse")]
+        bool UpdateType(ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO service);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateType", ReplyAction="http://tempuri.org/IService1/UpdateTypeResponse")]
+        System.Threading.Tasks.Task<bool> UpdateTypeAsync(ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO service);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTypes", ReplyAction="http://tempuri.org/IService1/GetTypesResponse")]
+        ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO[] GetTypes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTypes", ReplyAction="http://tempuri.org/IService1/GetTypesResponse")]
+        System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO[]> GetTypesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteType", ReplyAction="http://tempuri.org/IService1/DeleteTypeResponse")]
+        bool DeleteType(ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO service);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteType", ReplyAction="http://tempuri.org/IService1/DeleteTypeResponse")]
+        System.Threading.Tasks.Task<bool> DeleteTypeAsync(ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO service);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddJob", ReplyAction="http://tempuri.org/IService1/AddJobResponse")]
+        bool AddJob(ClientManagement.Backend.Logic.ServiceReference1.JobDAO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddJob", ReplyAction="http://tempuri.org/IService1/AddJobResponse")]
+        System.Threading.Tasks.Task<bool> AddJobAsync(ClientManagement.Backend.Logic.ServiceReference1.JobDAO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateJob", ReplyAction="http://tempuri.org/IService1/UpdateJobResponse")]
+        bool UpdateJob(ClientManagement.Backend.Logic.ServiceReference1.JobDAO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateJob", ReplyAction="http://tempuri.org/IService1/UpdateJobResponse")]
+        System.Threading.Tasks.Task<bool> UpdateJobAsync(ClientManagement.Backend.Logic.ServiceReference1.JobDAO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetJobs", ReplyAction="http://tempuri.org/IService1/GetJobsResponse")]
+        ClientManagement.Backend.Logic.ServiceReference1.JobDAO[] GetJobs();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetJobs", ReplyAction="http://tempuri.org/IService1/GetJobsResponse")]
+        System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.JobDAO[]> GetJobsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteJob", ReplyAction="http://tempuri.org/IService1/DeleteJobResponse")]
+        bool DeleteJob(ClientManagement.Backend.Logic.ServiceReference1.JobDAO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteJob", ReplyAction="http://tempuri.org/IService1/DeleteJobResponse")]
+        System.Threading.Tasks.Task<bool> DeleteJobAsync(ClientManagement.Backend.Logic.ServiceReference1.JobDAO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetExpenses", ReplyAction="http://tempuri.org/IService1/GetExpensesResponse")]
+        ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO[] GetExpenses();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetExpenses", ReplyAction="http://tempuri.org/IService1/GetExpensesResponse")]
+        System.Threading.Tasks.Task<ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO[]> GetExpensesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddExpense", ReplyAction="http://tempuri.org/IService1/AddExpenseResponse")]
+        bool AddExpense(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddExpense", ReplyAction="http://tempuri.org/IService1/AddExpenseResponse")]
+        System.Threading.Tasks.Task<bool> AddExpenseAsync(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateExpense", ReplyAction="http://tempuri.org/IService1/UpdateExpenseResponse")]
+        bool UpdateExpense(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateExpense", ReplyAction="http://tempuri.org/IService1/UpdateExpenseResponse")]
+        System.Threading.Tasks.Task<bool> UpdateExpenseAsync(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteExpense", ReplyAction="http://tempuri.org/IService1/DeleteExpenseResponse")]
+        bool DeleteExpense(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteExpense", ReplyAction="http://tempuri.org/IService1/DeleteExpenseResponse")]
+        System.Threading.Tasks.Task<bool> DeleteExpenseAsync(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -167,6 +324,110 @@ namespace ClientManagement.Backend.Client.ServiceReference1 {
         
         public System.Threading.Tasks.Task<bool> DeleteClientAsync(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client) {
             return base.Channel.DeleteClientAsync(client);
+        }
+        
+        public bool UpdateUser(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user) {
+            return base.Channel.UpdateUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateUserAsync(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user) {
+            return base.Channel.UpdateUserAsync(user);
+        }
+        
+        public bool AddType(ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO service) {
+            return base.Channel.AddType(service);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddTypeAsync(ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO service) {
+            return base.Channel.AddTypeAsync(service);
+        }
+        
+        public bool UpdateType(ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO service) {
+            return base.Channel.UpdateType(service);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateTypeAsync(ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO service) {
+            return base.Channel.UpdateTypeAsync(service);
+        }
+        
+        public ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO[] GetTypes() {
+            return base.Channel.GetTypes();
+        }
+        
+        public System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO[]> GetTypesAsync() {
+            return base.Channel.GetTypesAsync();
+        }
+        
+        public bool DeleteType(ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO service) {
+            return base.Channel.DeleteType(service);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteTypeAsync(ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO service) {
+            return base.Channel.DeleteTypeAsync(service);
+        }
+        
+        public bool AddJob(ClientManagement.Backend.Logic.ServiceReference1.JobDAO job) {
+            return base.Channel.AddJob(job);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddJobAsync(ClientManagement.Backend.Logic.ServiceReference1.JobDAO job) {
+            return base.Channel.AddJobAsync(job);
+        }
+        
+        public bool UpdateJob(ClientManagement.Backend.Logic.ServiceReference1.JobDAO job) {
+            return base.Channel.UpdateJob(job);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateJobAsync(ClientManagement.Backend.Logic.ServiceReference1.JobDAO job) {
+            return base.Channel.UpdateJobAsync(job);
+        }
+        
+        public ClientManagement.Backend.Logic.ServiceReference1.JobDAO[] GetJobs() {
+            return base.Channel.GetJobs();
+        }
+        
+        public System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.JobDAO[]> GetJobsAsync() {
+            return base.Channel.GetJobsAsync();
+        }
+        
+        public bool DeleteJob(ClientManagement.Backend.Logic.ServiceReference1.JobDAO job) {
+            return base.Channel.DeleteJob(job);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteJobAsync(ClientManagement.Backend.Logic.ServiceReference1.JobDAO job) {
+            return base.Channel.DeleteJobAsync(job);
+        }
+        
+        public ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO[] GetExpenses() {
+            return base.Channel.GetExpenses();
+        }
+        
+        public System.Threading.Tasks.Task<ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO[]> GetExpensesAsync() {
+            return base.Channel.GetExpensesAsync();
+        }
+        
+        public bool AddExpense(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex) {
+            return base.Channel.AddExpense(ex);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddExpenseAsync(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex) {
+            return base.Channel.AddExpenseAsync(ex);
+        }
+        
+        public bool UpdateExpense(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex) {
+            return base.Channel.UpdateExpense(ex);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateExpenseAsync(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex) {
+            return base.Channel.UpdateExpenseAsync(ex);
+        }
+        
+        public bool DeleteExpense(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex) {
+            return base.Channel.DeleteExpense(ex);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteExpenseAsync(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex) {
+            return base.Channel.DeleteExpenseAsync(ex);
         }
     }
 }

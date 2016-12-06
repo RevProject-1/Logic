@@ -16,7 +16,10 @@ namespace ClientManagement.Backend.Logic.Mapping
          a.Email = b.Email;
          a.Name = b.Name;
          a.PhoneNumber = b.PhoneNumber;
-         a.Address = AddressMapper.MapToAddressDTO(b.Address);
+         if (b.Address != null)
+         {
+            a.Address = AddressMapper.MapToAddressDTO(b.Address);
+         }        
          a.UserId = b.UserId;
          return a;
       }
@@ -28,7 +31,10 @@ namespace ClientManagement.Backend.Logic.Mapping
          a.Email = b.Email;
          a.Name = b.Name;
          a.PhoneNumber = b.PhoneNumber;
-         a.Address = Mapping.AddressMapper.MapToAddressDAO(b.Address);
+         if(b.Address!=null)
+         {
+            a.Address = AddressMapper.MapToAddressDAO(b.Address);
+         }         
          a.UserId = b.UserId;
          return a;
       }

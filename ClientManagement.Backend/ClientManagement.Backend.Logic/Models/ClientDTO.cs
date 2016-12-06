@@ -9,6 +9,7 @@ namespace ClientManagement.Backend.Logic.Models
    [DataContract]
    public class ClientDTO
    {
+
       [DataMember]
       public string Name { get; set; }
       [DataMember]

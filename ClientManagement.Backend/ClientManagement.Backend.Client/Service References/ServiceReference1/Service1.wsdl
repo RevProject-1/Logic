@@ -49,6 +49,18 @@
   <wsdl:message name="IService1_AddClient_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddClientResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UpdateClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClient" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClient" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClientResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Register">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Register" message="tns:IService1_Register_InputMessage" />
@@ -77,6 +89,14 @@
     <wsdl:operation name="AddClient">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddClient" message="tns:IService1_AddClient_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddClientResponse" message="tns:IService1_AddClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateClient" message="tns:IService1_UpdateClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateClientResponse" message="tns:IService1_UpdateClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteClient" message="tns:IService1_DeleteClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteClientResponse" message="tns:IService1_DeleteClient_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -137,6 +157,24 @@
     </wsdl:operation>
     <wsdl:operation name="AddClient">
       <soap:operation soapAction="http://tempuri.org/IService1/AddClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClient">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClient">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteClient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

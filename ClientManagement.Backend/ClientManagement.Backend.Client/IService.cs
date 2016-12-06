@@ -86,7 +86,7 @@ namespace ClientManagement.Backend.Client
       List<AddressDTO> getAddressDTOs();
 
       [OperationContract]
-      List<AddressDTO> getAddressDTO(string street, string city, string state, string zip);
+      List<AddressDTO> getAddressDTOByStreetandCityandStateandZip(string street, string city, string state, string zip);
 
       [OperationContract]
       List<AddressDTO> getAddressDTOByStreet(string street);

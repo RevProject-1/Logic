@@ -9,6 +9,7 @@ namespace ClientManagement.Backend.Logic.Models
    [DataContract]
    public class AddressDTO
    {
+      
       [DataMember]
       public string Street { get; set; }
       [DataMember]

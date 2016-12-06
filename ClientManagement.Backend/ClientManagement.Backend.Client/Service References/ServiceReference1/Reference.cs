@@ -56,6 +56,18 @@ namespace ClientManagement.Backend.Client.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddClient", ReplyAction="http://tempuri.org/IService1/AddClientResponse")]
         System.Threading.Tasks.Task<bool> AddClientAsync(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateClient", ReplyAction="http://tempuri.org/IService1/UpdateClientResponse")]
+        bool UpdateClient(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateClient", ReplyAction="http://tempuri.org/IService1/UpdateClientResponse")]
+        System.Threading.Tasks.Task<bool> UpdateClientAsync(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteClient", ReplyAction="http://tempuri.org/IService1/DeleteClientResponse")]
+        bool DeleteClient(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteClient", ReplyAction="http://tempuri.org/IService1/DeleteClientResponse")]
+        System.Threading.Tasks.Task<bool> DeleteClientAsync(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -139,6 +151,22 @@ namespace ClientManagement.Backend.Client.ServiceReference1 {
         
         public System.Threading.Tasks.Task<bool> AddClientAsync(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client) {
             return base.Channel.AddClientAsync(client);
+        }
+        
+        public bool UpdateClient(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client) {
+            return base.Channel.UpdateClient(client);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateClientAsync(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client) {
+            return base.Channel.UpdateClientAsync(client);
+        }
+        
+        public bool DeleteClient(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client) {
+            return base.Channel.DeleteClient(client);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteClientAsync(ClientManagement.Backend.Logic.ServiceReference1.ClientDAO client) {
+            return base.Channel.DeleteClientAsync(client);
         }
     }
 }

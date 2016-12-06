@@ -16,6 +16,7 @@ namespace ClientManagement.Backend.Client
    {
       private appLogic logic = new appLogic();
 
+      #region delete functions
       public bool deleteAddress(AddressDTO address)
       {
          throw new NotImplementedException();
@@ -48,12 +49,19 @@ namespace ClientManagement.Backend.Client
 
       public bool deleteClient(ClientDTO client)
       {
-         throw new NotImplementedException();
+         return logic.deleteClient(client);
       }
+      #endregion
 
-      public List<AddressDTO> getAddressDTO(string street, string city, string state, string zip)
+      #region get address functions
+      public List<AddressDTO> getAddressDTOs()
       {
          return logic.getAddressDTOs();
+      }
+
+      public List<AddressDTO> getAddressDTObyStreetandCityandStateandZip(string street, string city, string state, string zip)
+      {
+         return logic.getAddressDTOsByStreetandCityandStateandZip(street,city,state,zip);
       }
 
       public List<AddressDTO> getAddressDTOByStreet(string street)
@@ -71,7 +79,7 @@ namespace ClientManagement.Backend.Client
          return logic.getAddressDTOsByStreetandCityandState(street,city,state);
       }
 
-      public List<AddressDTO> getAddressDTOsByStreetandCityandStateandZip(string street,string city,string state,string zip)
+      public List<AddressDTO> getAddressDTOByStreetandCityandStateandZip(string street, string city, string state, string zip)
       {
          return logic.getAddressDTOsByStreetandCityandStateandZip(street,city,state,zip);
       }
@@ -90,7 +98,9 @@ namespace ClientManagement.Backend.Client
       {
          return logic.getAddressDTOsByZip(zip);
       }
+      #endregion
 
+      #region get aspnetroles functions
       public List<AspNetRoles> getAspNetRoles()
       {
          throw new NotImplementedException();
@@ -105,7 +115,9 @@ namespace ClientManagement.Backend.Client
       {
          throw new NotImplementedException();
       }
+      #endregion
 
+      #region get aspnetuserclaims functions
       public List<AspNetUserClaims> getAspNetUserClaims()
       {
          throw new NotImplementedException();
@@ -120,7 +132,9 @@ namespace ClientManagement.Backend.Client
       {
          throw new NotImplementedException();
       }
+      #endregion
 
+      #region get aspneruserlogin functions
       public List<AspNetUserLogins> getAspNetUserLogin(string loginProvider, string providerKey, string userId)
       {
          throw new NotImplementedException();
@@ -130,7 +144,9 @@ namespace ClientManagement.Backend.Client
       {
          throw new NotImplementedException();
       }
+      #endregion
 
+      #region get aspnetuserrole functions
       public List<AspNetUserRoles> getAspNetUserRole(string userId, string roleId)
       {
          throw new NotImplementedException();
@@ -140,7 +156,9 @@ namespace ClientManagement.Backend.Client
       {
          throw new NotImplementedException();
       }
+      #endregion
 
+      #region get aspnetuser functions
       public List<AspNetUsers> getAspNetUsers()
       {
          return logic.getAspNetUsers();
@@ -150,7 +168,9 @@ namespace ClientManagement.Backend.Client
       {
          return logic.getAspNetUsersByName(name);
       }
+      #endregion
 
+      #region get client functions
       public List<ClientDTO> getClients()
       {
          return logic.getClients();
@@ -175,7 +195,9 @@ namespace ClientManagement.Backend.Client
       {
          return logic.getClientsByPhoneNumber(phoneNumber);
       }
+      #endregion
 
+      #region insert functions
       public bool insertAddressDTOs(AddressDTO address)
       {
          throw new NotImplementedException();
@@ -203,19 +225,21 @@ namespace ClientManagement.Backend.Client
 
       public bool insertAspNetUsers(AspNetUsers user)
       {
-         throw new NotImplementedException();
+         return logic.insertAspNetUsers(user);
       }
 
       public bool insertClients(ClientDTO client)
       {
          return logic.insertClients(client);
       }
+      #endregion
 
       public void login(AspNetUsers user)
       {
          throw new NotImplementedException();
       }
 
+      #region update functions
       public bool updateAddress(AddressDTO address)
       {
          throw new NotImplementedException();
@@ -248,12 +272,11 @@ namespace ClientManagement.Backend.Client
 
       public bool updateClient(ClientDTO client)
       {
-         throw new NotImplementedException();
+         return logic.updateClient(client);
       }
+      #endregion
 
-      public List<AddressDTO> getAddressDTOs()
-      {
-         return logic.getAddressDTOs();
-      }
+
+
    }
 }

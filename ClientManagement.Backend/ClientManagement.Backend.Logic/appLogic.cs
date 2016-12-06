@@ -93,7 +93,7 @@ namespace ClientManagement.Backend.Logic
       //public List<AspNetUserLogins> getAspNetUserLogins(string loginProvider, string providerKey, string userId);
       #endregion
 
-      #region AspNetUserRoles functions
+      #region get AspNetUserRoles functions
 
       //public List<AspNetUserRoles> getAspNetUserRoles();
 
@@ -165,7 +165,10 @@ namespace ClientManagement.Backend.Logic
 
       #region Insert Functions
 
-      //public bool insertAspNetUsers(AspNetUsers user);
+      public bool insertAspNetUsers(AspNetUsers user)
+      {
+         return sc.Register(Mapping.AspNetUserMapper.mapToUserDAO(user));
+      }
 
       public bool insertClients(ClientDTO client)
       {
@@ -198,7 +201,10 @@ namespace ClientManagement.Backend.Logic
 
       //public bool deleteAspNetUsers(AspNetUsers user);
 
-      //public bool deleteClient(ClientDTO client);
+      public bool deleteClient(ClientDTO client)
+      {
+         return sc.DeleteClient(Mapping.ClientMapper.MapToClientDAO(client));
+      }
 
       #endregion
 
@@ -216,7 +222,10 @@ namespace ClientManagement.Backend.Logic
 
       //public bool updateAspNetUsers(AspNetUsers user);
 
-      //public bool updateClient(ClientDTO client);
+      public bool updateClient(ClientDTO client)
+      {
+         return sc.UpdateClient(Mapping.ClientMapper.MapToClientDAO(client));
+      }
 
 
       #endregion

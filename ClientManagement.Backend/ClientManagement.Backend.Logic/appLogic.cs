@@ -11,14 +11,14 @@ namespace ClientManagement.Backend.Logic
    
     public class appLogic
     {
-      private ServiceReference1.Service1Client db = new Service1Client();
+      private Service1Client sc = new Service1Client();
       
       #region get functions
 
       #region get AspNetUsers functions
       public List<AspNetUsers> getAspNetUsers()
       {
-         var result = db.GetUserNames();
+         var result = sc.GetUsers();
          var newList = new List<AspNetUsers>();
          foreach (var item in result)
          {
@@ -27,9 +27,9 @@ namespace ClientManagement.Backend.Logic
          return newList;
       }
 
-      public List<AspNetUsers> getAspNetUsers(string name)
+      public List<AspNetUsers> getAspNetUsersByName(string name)
       {
-         var newList = getAspNetUsers().Where(m => m.UserName.ToLower() == name.ToLower()) as List<AspNetUsers>;
+         var newList = getAspNetUsers().Where(m => m.Name.ToLower().Equals(name.ToLower())).ToList();
          return newList;
       }
       #endregion
@@ -38,7 +38,7 @@ namespace ClientManagement.Backend.Logic
       public List<ClientDTO> getClients()
       {
          var clients = new List<ClientDTO>();
-         var list = db.GetClients();
+         var list = sc.GetClients();
          foreach (var item in list)
          {
             clients.Add(Mapping.ClientMapper.MapToClientDTO(item));
@@ -46,27 +46,27 @@ namespace ClientManagement.Backend.Logic
          return clients;
       }
 
-      public List<ClientDTO> getClients(string name)
+      public List<ClientDTO> getClientsByName(string name)
       {
-         var list=getClients().Where(m => m.Name.ToLower() == name.ToLower()) as List<ClientDTO>;
+         var list=getClients().Where(m => m.Name.ToLower().Equals(name.ToLower())).ToList();
          return list;
       }
 
       public List<ClientDTO> getClientsByPhoneNumber(string phoneNumber)
       {
-         var list = getClients().Where(m => m.PhoneNumber == phoneNumber) as List<ClientDTO>;
+         var list = getClients().Where(m => m.PhoneNumber.Equals(phoneNumber)).ToList();
          return list;
       }
 
       public List<ClientDTO> getClientsByEmail(string email)
       {
-         var list = getClients().Where(m => m.Email.ToLower() == email.ToLower()) as List<ClientDTO>;
+         var list = getClients().Where(m => m.Email.ToLower().Equals(email.ToLower())).ToList();
          return list;
       }
 
       public List<ClientDTO> getClientsByAddressId(int AddressId)
       {
-         var list = getClients().Where(m => m.AddressID == AddressId) as List<ClientDTO>;
+         var list = getClients().Where(m => m.AddressID == AddressId).ToList();
          return list;
       }
       #endregion
@@ -105,7 +105,7 @@ namespace ClientManagement.Backend.Logic
 
       public List<AddressDTO> getAddressDTOs()
       {
-         var list = db.GetAddress();
+         var list = sc.GetAddress();
          List<AddressDTO> newlist = new List<AddressDTO>();
          foreach (var item in list)
          {
@@ -115,46 +115,47 @@ namespace ClientManagement.Backend.Logic
          return newlist;
       }
 
-      public List<AddressDTO> getAddressDTOs(string street, string city, string state, string zip)
+      public List<AddressDTO> getAddressDTOsByStreetandCityandStateandZip(string street, string city, string state, string zip)
       {
-         var list = getAddressDTOs().Where(m => m.Street.ToLower() == street.ToLower() && m.City.ToLower() == city.ToLower() && m.State.ToLower() == state.ToLower() && m.Zip==zip) as List<AddressDTO>;
+         var list = getAddressDTOs().Where(m => m.Street.ToLower().Equals(street.ToLower()) && m.City.ToLower().Equals(city.ToLower()) && m.State.ToLower().Equals(state.ToLower()) && m.Zip.Equals(zip)).ToList();
          return list;
       }
 
-      public List<AddressDTO> getAddressDTOs(string street)
+      public List<AddressDTO> getAddressDTOsByStreet(string street)
       {
-         var list = getAddressDTOs().Where(m =>m.Street.ToLower()==street.ToLower()) as List<AddressDTO>;
+         var list = getAddressDTOs().Where(m =>m.Street.ToLower().Equals(street.ToLower())).ToList();
          return list;
       }
 
-      public List<AddressDTO> getAddressDTOs(string street, string city)
+      public List<AddressDTO> getAddressDTOsByStreetandCity(string street, string city)
       {
-         var list = getAddressDTOs().Where(m => m.Street.ToLower() == street.ToLower() && m.City.ToLower()==city.ToLower()) as List<AddressDTO>;
+         var list = getAddressDTOs().Where(m => m.Street.ToLower().Equals(street.ToLower()) && m.City.ToLower().Equals(city.ToLower())).ToList();
          return list;
 
       }
 
-      public List<AddressDTO> getAddressDTOs(string street, string city, string state)
+      public List<AddressDTO> getAddressDTOsByStreetandCityandState(string street, string city, string state)
       {
-         var list = getAddressDTOs().Where(m => m.Street.ToLower() == street.ToLower() && m.City.ToLower() == city.ToLower() && m.State.ToLower()==state.ToLower()) as List<AddressDTO>;
+         var list = getAddressDTOs().Where(m => m.Street.ToLower().Equals(street.ToLower()) && m.City.ToLower().Equals(city.ToLower()) && m.State.ToLower().Equals(state.ToLower())).ToList();
          return list;
       }
 
       public List<AddressDTO> getAddressDTOsByZip(string zip)
       {
-         var list = getAddressDTOs().Where(m => m.Zip == zip) as List<AddressDTO>;
+         var list = getAddressDTOs().Where(m => m.Zip.Equals(zip)).ToList();
+         
          return list;
       }
 
       public List<AddressDTO> getAddressDTOsByState(string state)
       {
-         var list = getAddressDTOs().Where(m => m.State.ToLower() == state.ToLower()) as List<AddressDTO>;
+         var list = getAddressDTOs().Where(m => m.State.ToLower().Equals(state.ToLower())).ToList();
          return list;
       }
 
       public List<AddressDTO> getAddressDTOsByCity(string city)
       {
-         var list = getAddressDTOs().Where(m => m.City.ToLower() == city.ToLower()) as List<AddressDTO>;
+         var list = getAddressDTOs().Where(m => m.City.ToLower().Equals(city.ToLower())).ToList();
          return list;
       }
 
@@ -166,7 +167,10 @@ namespace ClientManagement.Backend.Logic
 
       //public bool insertAspNetUsers(AspNetUsers user);
 
-      //public bool insertClients(ClientDTO client);
+      public bool insertClients(ClientDTO client)
+      {
+         return sc.AddClient(Mapping.ClientMapper.MapToClientDAO(client));
+      }
 
       //public bool insertAspNetRoles(AspNetRoles role);
 
@@ -219,7 +223,7 @@ namespace ClientManagement.Backend.Logic
 
       public void login(AspNetUsers user)
       {
-         db.Login(Mapping.AspNetUserMapper.mapToUserDAO(user));
+         sc.Login(Mapping.AspNetUserMapper.mapToUserDAO(user));
       }
    }
 }

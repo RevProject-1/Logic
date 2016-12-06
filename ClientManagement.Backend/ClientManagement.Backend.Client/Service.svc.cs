@@ -53,42 +53,42 @@ namespace ClientManagement.Backend.Client
 
       public List<AddressDTO> getAddressDTO(string street, string city, string state, string zip)
       {
-         throw new NotImplementedException();
+         return logic.getAddressDTOs();
       }
 
       public List<AddressDTO> getAddressDTOByStreet(string street)
       {
-         throw new NotImplementedException();
+         return logic.getAddressDTOsByStreet(street);
       }
 
       public List<AddressDTO> getAddressDTOByStreetandCity(string street, string city)
       {
-         throw new NotImplementedException();
+         return logic.getAddressDTOsByStreetandCity(street,city);
       }
 
       public List<AddressDTO> getAddressDTOByStreetandCityandState(string street, string city, string state)
       {
-         throw new NotImplementedException();
+         return logic.getAddressDTOsByStreetandCityandState(street,city,state);
       }
 
-      public List<AddressDTO> getAddressDTOs()
+      public List<AddressDTO> getAddressDTOsByStreetandCityandStateandZip(string street,string city,string state,string zip)
       {
-         throw new NotImplementedException();
+         return logic.getAddressDTOsByStreetandCityandStateandZip(street,city,state,zip);
       }
 
       public List<AddressDTO> getAddressDTOsByCity(string city)
       {
-         throw new NotImplementedException();
+         return logic.getAddressDTOsByCity(city);
       }
 
       public List<AddressDTO> getAddressDTOsByState(string state)
       {
-         throw new NotImplementedException();
+         return logic.getAddressDTOsByState(state);
       }
 
       public List<AddressDTO> getAddressDTOsByZip(string zip)
       {
-         throw new NotImplementedException();
+         return logic.getAddressDTOsByZip(zip);
       }
 
       public List<AspNetRoles> getAspNetRoles()
@@ -143,12 +143,12 @@ namespace ClientManagement.Backend.Client
 
       public List<AspNetUsers> getAspNetUsers()
       {
-         throw new NotImplementedException();
+         return logic.getAspNetUsers();
       }
 
       public List<AspNetUsers> getAspNetUsersByName(string name)
       {
-         throw new NotImplementedException();
+         return logic.getAspNetUsersByName(name);
       }
 
       public List<ClientDTO> getClients()
@@ -158,22 +158,22 @@ namespace ClientManagement.Backend.Client
 
       public List<ClientDTO> getClientsByAddressId(int AddressId)
       {
-         throw new NotImplementedException();
+         return logic.getClientsByAddressId(AddressId);
       }
 
       public List<ClientDTO> getClientsByEmail(string email)
       {
-         throw new NotImplementedException();
+         return logic.getClientsByEmail(email);
       }
 
       public List<ClientDTO> getClientsByName(string name)
       {
-         throw new NotImplementedException();
+         return logic.getClientsByName(name);
       }
 
       public List<ClientDTO> getClientsByPhoneNumber(string phoneNumber)
       {
-         throw new NotImplementedException();
+         return logic.getClientsByPhoneNumber(phoneNumber);
       }
 
       public bool insertAddressDTOs(AddressDTO address)
@@ -208,7 +208,7 @@ namespace ClientManagement.Backend.Client
 
       public bool insertClients(ClientDTO client)
       {
-         throw new NotImplementedException();
+         return logic.insertClients(client);
       }
 
       public void login(AspNetUsers user)
@@ -249,6 +249,11 @@ namespace ClientManagement.Backend.Client
       public bool updateClient(ClientDTO client)
       {
          throw new NotImplementedException();
+      }
+
+      public List<AddressDTO> getAddressDTOs()
+      {
+         return logic.getAddressDTOs();
       }
    }
 }

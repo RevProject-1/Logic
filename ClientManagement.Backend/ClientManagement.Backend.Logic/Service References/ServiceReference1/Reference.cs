@@ -574,11 +574,11 @@ namespace ClientManagement.Backend.Logic.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Register", ReplyAction="http://tempuri.org/IService1/RegisterResponse")]
         System.Threading.Tasks.Task<bool> RegisterAsync(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserNames", ReplyAction="http://tempuri.org/IService1/GetUserNamesResponse")]
-        ClientManagement.Backend.Logic.ServiceReference1.UserDAO[] GetUserNames();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUsers", ReplyAction="http://tempuri.org/IService1/GetUsersResponse")]
+        ClientManagement.Backend.Logic.ServiceReference1.UserDAO[] GetUsers();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserNames", ReplyAction="http://tempuri.org/IService1/GetUserNamesResponse")]
-        System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.UserDAO[]> GetUserNamesAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUsers", ReplyAction="http://tempuri.org/IService1/GetUsersResponse")]
+        System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.UserDAO[]> GetUsersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangePassword", ReplyAction="http://tempuri.org/IService1/ChangePasswordResponse")]
         bool ChangePassword(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user);
@@ -646,12 +646,12 @@ namespace ClientManagement.Backend.Logic.ServiceReference1 {
             return base.Channel.RegisterAsync(user);
         }
         
-        public ClientManagement.Backend.Logic.ServiceReference1.UserDAO[] GetUserNames() {
-            return base.Channel.GetUserNames();
+        public ClientManagement.Backend.Logic.ServiceReference1.UserDAO[] GetUsers() {
+            return base.Channel.GetUsers();
         }
         
-        public System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.UserDAO[]> GetUserNamesAsync() {
-            return base.Channel.GetUserNamesAsync();
+        public System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.UserDAO[]> GetUsersAsync() {
+            return base.Channel.GetUsersAsync();
         }
         
         public bool ChangePassword(ClientManagement.Backend.Logic.ServiceReference1.UserDAO user) {

@@ -46,6 +46,7 @@
     <Compile Include="Mapping\AddressMapper.cs" />
     <Compile Include="Mapping\AspNetUserMapper.cs" />
     <Compile Include="Mapping\ClientMapper.cs" />
+    <Compile Include="Mapping\ExpenseMapper.cs" />
     <Compile Include="Mapping\JobMapper.cs" />
     <Compile Include="Mapping\ServiceTypeMapper.cs" />
     <Compile Include="Models\AddressDTO.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Models\AspNetUserRoles.cs" />
     <Compile Include="Models\AspNetUsers.cs" />
     <Compile Include="Models\ClientDTO.cs" />
+    <Compile Include="Models\ExpenseDTO.cs" />
     <Compile Include="Models\jobDTO.cs" />
     <Compile Include="Models\ServiceTypeDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

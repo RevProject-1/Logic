@@ -47,6 +47,18 @@ namespace ClientManagement.Backend.Logic
 
       #region get client functions
 
+      public List<ClientDTO> getClientsByUserId(string userID)
+      {
+         
+         var list = sc.GetClients().Where(a => a.UserId!=null && a.UserId.Equals(userID));
+         var list2 = new List<ClientDTO>();
+         foreach (var item in list)
+         {
+            list2.Add(Mapping.ClientMapper.MapToClientDTO(item));
+         }
+         return list2;
+      }
+
       public List<ClientDTO> getClientsForUser(AspNetUsers user)
       {
          var list = sc.GetClients().Where(a => a.UserId.Equals(user.Id));

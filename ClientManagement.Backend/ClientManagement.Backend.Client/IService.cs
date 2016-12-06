@@ -24,6 +24,11 @@ namespace ClientManagement.Backend.Client
       #endregion
 
       #region get client functions
+
+      [OperationContract]
+      List<ClientDTO> getClientsByUserId(string userId);
+
+      [OperationContract]
       List<ClientDTO> getClientsforUser(AspNetUsers user);
 
       [OperationContract]

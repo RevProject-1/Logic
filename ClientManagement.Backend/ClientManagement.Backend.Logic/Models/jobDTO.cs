@@ -19,5 +19,7 @@ namespace ClientManagement.Backend.Logic.Models
       public virtual ClientDTO client { get; set; }
       public virtual AspNetUsers user { get; set; }
       public virtual ServiceTypeDTO type { get; set; }
+      public int? ExpenseId { get; set; }
+      public ExpenseDTO Expense { get; set; }
    }
 }

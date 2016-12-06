@@ -66,9 +66,7 @@
     <Content Include="Properties\DataSources\ClientManagement.Backend.Logic.ServiceReference1.UserDAO.datasource" />
     <Content Include="Properties\DataSources\ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO.datasource" />
     <Content Include="Properties\DataSources\ClientManagement.Backend.Logic.ServiceReference1.JobDAO.datasource" />
-    <Content Include="Service References\ServiceReference1\ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
+    <Content Include="Properties\DataSources\ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO.datasource" />
     <None Include="Service References\ServiceReference1\Service1.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />

@@ -9,86 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace ClientManagement.Backend.Client.ServiceReference1 {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ExpenseDAO", Namespace="http://schemas.datacontract.org/2004/07/ClientManagement.DbService.Models")]
-    [System.SerializableAttribute()]
-    public partial class ExpenseDAO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal CostField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Cost {
-            get {
-                return this.CostField;
-            }
-            set {
-                if ((this.CostField.Equals(value) != true)) {
-                    this.CostField = value;
-                    this.RaisePropertyChanged("Cost");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
@@ -203,28 +124,28 @@ namespace ClientManagement.Backend.Client.ServiceReference1 {
         System.Threading.Tasks.Task<bool> DeleteJobAsync(ClientManagement.Backend.Logic.ServiceReference1.JobDAO job);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetExpenses", ReplyAction="http://tempuri.org/IService1/GetExpensesResponse")]
-        ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO[] GetExpenses();
+        ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO[] GetExpenses();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetExpenses", ReplyAction="http://tempuri.org/IService1/GetExpensesResponse")]
-        System.Threading.Tasks.Task<ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO[]> GetExpensesAsync();
+        System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO[]> GetExpensesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddExpense", ReplyAction="http://tempuri.org/IService1/AddExpenseResponse")]
-        bool AddExpense(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex);
+        bool AddExpense(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddExpense", ReplyAction="http://tempuri.org/IService1/AddExpenseResponse")]
-        System.Threading.Tasks.Task<bool> AddExpenseAsync(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex);
+        System.Threading.Tasks.Task<bool> AddExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateExpense", ReplyAction="http://tempuri.org/IService1/UpdateExpenseResponse")]
-        bool UpdateExpense(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex);
+        bool UpdateExpense(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateExpense", ReplyAction="http://tempuri.org/IService1/UpdateExpenseResponse")]
-        System.Threading.Tasks.Task<bool> UpdateExpenseAsync(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex);
+        System.Threading.Tasks.Task<bool> UpdateExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteExpense", ReplyAction="http://tempuri.org/IService1/DeleteExpenseResponse")]
-        bool DeleteExpense(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex);
+        bool DeleteExpense(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteExpense", ReplyAction="http://tempuri.org/IService1/DeleteExpenseResponse")]
-        System.Threading.Tasks.Task<bool> DeleteExpenseAsync(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex);
+        System.Threading.Tasks.Task<bool> DeleteExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -398,35 +319,35 @@ namespace ClientManagement.Backend.Client.ServiceReference1 {
             return base.Channel.DeleteJobAsync(job);
         }
         
-        public ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO[] GetExpenses() {
+        public ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO[] GetExpenses() {
             return base.Channel.GetExpenses();
         }
         
-        public System.Threading.Tasks.Task<ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO[]> GetExpensesAsync() {
+        public System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO[]> GetExpensesAsync() {
             return base.Channel.GetExpensesAsync();
         }
         
-        public bool AddExpense(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex) {
+        public bool AddExpense(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex) {
             return base.Channel.AddExpense(ex);
         }
         
-        public System.Threading.Tasks.Task<bool> AddExpenseAsync(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex) {
+        public System.Threading.Tasks.Task<bool> AddExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex) {
             return base.Channel.AddExpenseAsync(ex);
         }
         
-        public bool UpdateExpense(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex) {
+        public bool UpdateExpense(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex) {
             return base.Channel.UpdateExpense(ex);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateExpenseAsync(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex) {
+        public System.Threading.Tasks.Task<bool> UpdateExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex) {
             return base.Channel.UpdateExpenseAsync(ex);
         }
         
-        public bool DeleteExpense(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex) {
+        public bool DeleteExpense(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex) {
             return base.Channel.DeleteExpense(ex);
         }
         
-        public System.Threading.Tasks.Task<bool> DeleteExpenseAsync(ClientManagement.Backend.Client.ServiceReference1.ExpenseDAO ex) {
+        public System.Threading.Tasks.Task<bool> DeleteExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex) {
             return base.Channel.DeleteExpenseAsync(ex);
         }
     }

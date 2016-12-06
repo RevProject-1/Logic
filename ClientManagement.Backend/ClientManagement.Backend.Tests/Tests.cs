@@ -203,29 +203,20 @@ namespace ClientManagement.Backend.Tests
          testjob.UserId = testjob.user.Id;
          testjob.ServiceTypeId = testjob.type.Id;
          var result = myLogic.insertJob(testjob);
-         testjob.EstimatedDuration = 66
-         var result2 = myLogic.updateJob(testjob);
+         var insertedJob = myLogic.getJobs().Where(a => a.Id == myLogic.getJobs().Max(b => b.Id)).FirstOrDefault();
+         insertedJob.EstimatedDuration = 66666;
+         var result2 = myLogic.updateJob(insertedJob);
          Assert.True(result && result2);
       }
 
-      //[Fact]
-      //public void testUpdateJob()
-      //{
-      //   var testjob = new jobDTO();
-
-      //   testjob.client = myLogic.getClientsByName("Revature").FirstOrDefault();
-      //   testjob.EstimatedDuration = 6;
-      //   testjob.Notes = "some notes";
-      //   testjob.type = myLogic.getServiceTypes().Where(m => m.Name.Equals("test type 2")).FirstOrDefault();
-      //   testjob.StartDate = DateTime.Now;
-      //   testjob.user = myLogic.getAspNetUsersByName("Revature").FirstOrDefault();
-      //   testjob.UserId = testjob.user.Id;
-      //   testjob.ServiceTypeId = testjob.type.Id;
-      //   var result = myLogic.insertJob(testjob);
-      //   testjob.EstimatedDuration = 66
-      //   var result2 = myLogic.updateJob(testjob);
-      //   Assert.True(result && result2);
-      //}
+      [Fact]
+      public void testDeleteJob()
+      {
+         var insertedJob = myLogic.getJobs().Where(a => a.Id == myLogic.getJobs().Max(b => b.Id)).FirstOrDefault();
+         var result = myLogic.deleteJob(insertedJob);
+         
+         Assert.True(result);
+      }
       #endregion
 
 

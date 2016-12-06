@@ -184,6 +184,12 @@ namespace ClientManagement.Backend.Client
 
       #region get client functions
 
+      public List<ClientDTO> getClientsByUserId(string userId)
+      {
+         return logic.getClientsByUserId(userId);
+      }
+      
+
       public List<ClientDTO> getClientsforUser(AspNetUsers user)
       {
          return logic.getClientsForUser(user);

@@ -12,6 +12,10 @@ namespace ClientManagement.Backend.Client
    [ServiceContract]
    public interface IService
    {
+      [OperationContract]
+      List<AspNetUsers> getUserById(string userId);
+      [OperationContract]
+      List<ServiceTypeDTO> getServiceTypeByName(string name);
 
       #region get functions
 

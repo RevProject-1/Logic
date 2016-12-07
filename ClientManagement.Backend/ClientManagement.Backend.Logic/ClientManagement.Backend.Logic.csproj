@@ -47,6 +47,7 @@
     <Compile Include="Mapping\AspNetUserMapper.cs" />
     <Compile Include="Mapping\ClientMapper.cs" />
     <Compile Include="Mapping\ExpenseMapper.cs" />
+    <Compile Include="Mapping\JobExpenseMapper.cs" />
     <Compile Include="Mapping\JobMapper.cs" />
     <Compile Include="Mapping\ServiceTypeMapper.cs" />
     <Compile Include="Models\AddressDTO.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Models\ClientDTO.cs" />
     <Compile Include="Models\ExpenseDTO.cs" />
     <Compile Include="Models\jobDTO.cs" />
+    <Compile Include="Models\JobExpenseDTO.cs" />
     <Compile Include="Models\ServiceTypeDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceReference1\Reference.cs">

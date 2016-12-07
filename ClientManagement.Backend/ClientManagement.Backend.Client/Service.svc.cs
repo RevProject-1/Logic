@@ -15,8 +15,16 @@ namespace ClientManagement.Backend.Client
    // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
    public class Service1 : IService
    {
-      private appLogic logic = new appLogic();    
+      private appLogic logic = new appLogic();
 
+      public List<AspNetUsers> getUserById(string userId)
+      {
+         return logic.getUserById(userId);
+      }
+      public List<ServiceTypeDTO> getServiceTypeByName(string name)
+      {
+         return logic.getServiceTypeByName(name);
+      }
 
       #region get functions
 

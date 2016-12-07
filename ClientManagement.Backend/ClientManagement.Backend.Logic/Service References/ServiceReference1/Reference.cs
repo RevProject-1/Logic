@@ -679,10 +679,7 @@ namespace ClientManagement.Backend.Logic.ServiceReference1 {
         private System.Nullable<int> EstimatedDurationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ExpenseField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> ExpenseIDField;
+        private decimal HoursField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
@@ -768,27 +765,14 @@ namespace ClientManagement.Backend.Logic.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO Expense {
+        public decimal Hours {
             get {
-                return this.ExpenseField;
+                return this.HoursField;
             }
             set {
-                if ((object.ReferenceEquals(this.ExpenseField, value) != true)) {
-                    this.ExpenseField = value;
-                    this.RaisePropertyChanged("Expense");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> ExpenseID {
-            get {
-                return this.ExpenseIDField;
-            }
-            set {
-                if ((this.ExpenseIDField.Equals(value) != true)) {
-                    this.ExpenseIDField = value;
-                    this.RaisePropertyChanged("ExpenseID");
+                if ((this.HoursField.Equals(value) != true)) {
+                    this.HoursField = value;
+                    this.RaisePropertyChanged("Hours");
                 }
             }
         }

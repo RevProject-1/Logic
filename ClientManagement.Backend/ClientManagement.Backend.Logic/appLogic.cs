@@ -12,7 +12,16 @@ namespace ClientManagement.Backend.Logic
     public class appLogic
     {
       private Service1Client sc = new Service1Client();
-      
+
+      public List<AspNetUsers> getUserById(string userId)
+      {
+         return getAspNetUsers().Where(m => m.Id.Equals(userId)).ToList();
+      }
+      public List<ServiceTypeDTO> getServiceTypeByName(string name)
+      {
+         return getServiceTypes().Where(m => m.Name.Equals(name)).ToList();
+      }
+
       #region get functions
 
       #region get AspNetUsers functions

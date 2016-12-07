@@ -15,55 +15,10 @@ namespace ClientManagement.Backend.Client
    // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
    public class Service1 : IService
    {
-      private appLogic logic = new appLogic();
+      private appLogic logic = new appLogic();    
 
-      #region delete functions
 
-      public bool deleteJob(jobDTO job)
-      {
-         return logic.deleteJob(job);
-      }
-
-      public bool deleteServiceType(ServiceTypeDTO type)
-      {
-         return logic.deleteServiceType(type);
-      }
-
-      public bool deleteAddress(AddressDTO address)
-      {
-         throw new NotImplementedException();
-      }
-
-      public bool deleteAspNetRole(AspNetUserRoles role)
-      {
-         throw new NotImplementedException();
-      }
-
-      public bool deleteAspNetUserClaim(AspNetUserClaims claim)
-      {
-         throw new NotImplementedException();
-      }
-
-      public bool deleteAspNetUserLogin(AspNetUserLogins login)
-      {
-         throw new NotImplementedException();
-      }
-
-      public bool deleteAspNetUserRoles(AspNetUserRoles userRole)
-      {
-         throw new NotImplementedException();
-      }
-
-      public bool deleteAspNetUsers(AspNetUsers user)
-      {
-         throw new NotImplementedException();
-      }
-
-      public bool deleteClient(ClientDTO client)
-      {
-         return logic.deleteClient(client);
-      }
-      #endregion
+      #region get functions
 
       #region get address functions
       public List<AddressDTO> getAddressDTOs()
@@ -113,61 +68,61 @@ namespace ClientManagement.Backend.Client
       #endregion
 
       #region get aspnetroles functions
-      public List<AspNetRoles> getAspNetRoles()
-      {
-         throw new NotImplementedException();
-      }
+      //public List<AspNetRoles> getAspNetRoles()
+      //{
+      //   throw new NotImplementedException();
+      //}
 
-      public List<AspNetRoles> getAspNetRolesById(int Id)
-      {
-         throw new NotImplementedException();
-      }
+      //public List<AspNetRoles> getAspNetRolesById(int Id)
+      //{
+      //   throw new NotImplementedException();
+      //}
 
-      public List<AspNetRoles> getAspNetRolesByName(string name)
-      {
-         throw new NotImplementedException();
-      }
+      //public List<AspNetRoles> getAspNetRolesByName(string name)
+      //{
+      //   throw new NotImplementedException();
+      //}
       #endregion
 
       #region get aspnetuserclaims functions
-      public List<AspNetUserClaims> getAspNetUserClaims()
-      {
-         throw new NotImplementedException();
-      }
+      //public List<AspNetUserClaims> getAspNetUserClaims()
+      //{
+      //   throw new NotImplementedException();
+      //}
 
-      public List<AspNetUserClaims> getAspNetUserClaimsById(int Id)
-      {
-         throw new NotImplementedException();
-      }
+      //public List<AspNetUserClaims> getAspNetUserClaimsById(int Id)
+      //{
+      //   throw new NotImplementedException();
+      //}
 
-      public List<AspNetUserClaims> getAspNetUserClaimsByUserIdandClaimtypeandClaimValue(string userId, string claimType, string claimValue)
-      {
-         throw new NotImplementedException();
-      }
+      //public List<AspNetUserClaims> getAspNetUserClaimsByUserIdandClaimtypeandClaimValue(string userId, string claimType, string claimValue)
+      //{
+      //   throw new NotImplementedException();
+      //}
       #endregion
 
-      #region get aspneruserlogin functions
-      public List<AspNetUserLogins> getAspNetUserLogin(string loginProvider, string providerKey, string userId)
-      {
-         throw new NotImplementedException();
-      }
+      #region get aspnetuserlogin functions
+      //public List<AspNetUserLogins> getAspNetUserLogin(string loginProvider, string providerKey, string userId)
+      //{
+      //   throw new NotImplementedException();
+      //}
 
-      public List<AspNetUserLogins> getAspNetUserLogins()
-      {
-         throw new NotImplementedException();
-      }
+      //public List<AspNetUserLogins> getAspNetUserLogins()
+      //{
+      //   throw new NotImplementedException();
+      //}
       #endregion
 
       #region get aspnetuserrole functions
-      public List<AspNetUserRoles> getAspNetUserRole(string userId, string roleId)
-      {
-         throw new NotImplementedException();
-      }
+      //public List<AspNetUserRoles> getAspNetUserRole(string userId, string roleId)
+      //{
+      //   throw new NotImplementedException();
+      //}
 
-      public List<AspNetUserRoles> getAspNetUserRoles()
-      {
-         throw new NotImplementedException();
-      }
+      //public List<AspNetUserRoles> getAspNetUserRoles()
+      //{
+      //   throw new NotImplementedException();
+      //}
       #endregion
 
       #region get aspnetuser functions
@@ -221,16 +176,32 @@ namespace ClientManagement.Backend.Client
       }
       #endregion
 
-      
-      public List<jobDTO> getjobs()
+      #region get job functions
+      public List<jobDTO> getJobsByUserComplete(string userId)
       {
-         return logic.getJobs().ToList();
+         return logic.getJobsByUserComplete(userId);
       }
 
+      public List<jobDTO> getJobsByUserIncomplete(string userId)
+      {
+         return logic.getJobsByUserIncomplete(userId);
+      }
+
+      public List<jobDTO> getjobs()
+      {
+         return logic.getJobs().ToList();          
+      }
+      #endregion
+
+      #region get serviceType functions
       public List<ServiceTypeDTO> getServiceTypes()
       {
          return logic.getServiceTypes();
       }
+      #endregion
+
+      #endregion
+
 
       #region insert functions
 
@@ -249,25 +220,25 @@ namespace ClientManagement.Backend.Client
          throw new NotImplementedException();
       }
 
-      public bool insertAspNetRoles(AspNetRoles role)
-      {
-         throw new NotImplementedException();
-      }
+      //public bool insertAspNetRoles(AspNetRoles role)
+      //{
+      //   throw new NotImplementedException();
+      //}
 
-      public bool insertAspNetUserClaims(AspNetUserClaims claim)
-      {
-         throw new NotImplementedException();
-      }
+      //public bool insertAspNetUserClaims(AspNetUserClaims claim)
+      //{
+      //   throw new NotImplementedException();
+      //}
 
-      public bool insertAspNetUserLogins(AspNetUserLogins login)
-      {
-         throw new NotImplementedException();
-      }
+      //public bool insertAspNetUserLogins(AspNetUserLogins login)
+      //{
+      //   throw new NotImplementedException();
+      //}
 
-      public bool insertAspNetUserRoles(AspNetUserRoles userRole)
-      {
-         throw new NotImplementedException();
-      }
+      //public bool insertAspNetUserRoles(AspNetUserRoles userRole)
+      //{
+      //   throw new NotImplementedException();
+      //}
 
       public bool insertAspNetUsers(AspNetUsers user)
       {
@@ -279,11 +250,7 @@ namespace ClientManagement.Backend.Client
          return logic.insertClients(client);
       }
       #endregion
-
-      public void login(AspNetUsers user)
-      {
-         throw new NotImplementedException();
-      }
+     
 
       #region update functions
 
@@ -297,25 +264,25 @@ namespace ClientManagement.Backend.Client
          throw new NotImplementedException();
       }
 
-      public bool updateAspNetRole(AspNetUserRoles role)
-      {
-         throw new NotImplementedException();
-      }
+      //public bool updateAspNetRole(AspNetUserRoles role)
+      //{
+      //   throw new NotImplementedException();
+      //}
 
-      public bool updateAspNetUserClaim(AspNetUserClaims claim)
-      {
-         throw new NotImplementedException();
-      }
+      //public bool updateAspNetUserClaim(AspNetUserClaims claim)
+      //{
+      //   throw new NotImplementedException();
+      //}
 
-      public bool updateAspNetUserLogin(AspNetUserLogins login)
-      {
-         throw new NotImplementedException();
-      }
+      //public bool updateAspNetUserLogin(AspNetUserLogins login)
+      //{
+      //   throw new NotImplementedException();
+      //}
 
-      public bool updateAspNetUserRoles(AspNetUserRoles userRole)
-      {
-         throw new NotImplementedException();
-      }
+      //public bool updateAspNetUserRoles(AspNetUserRoles userRole)
+      //{
+      //   throw new NotImplementedException();
+      //}
 
       public bool updateAspNetUsers(AspNetUsers user)
       {
@@ -332,7 +299,9 @@ namespace ClientManagement.Backend.Client
          return logic.updateJob(job);
       }
 
-     
+
+
+
 
 
 
@@ -340,6 +309,57 @@ namespace ClientManagement.Backend.Client
       #endregion
 
 
+      #region delete functions
 
+      public bool deleteJob(jobDTO job)
+      {
+         return logic.deleteJob(job);
+      }
+
+      public bool deleteServiceType(ServiceTypeDTO type)
+      {
+         return logic.deleteServiceType(type);
+      }
+
+      public bool deleteAddress(AddressDTO address)
+      {
+         throw new NotImplementedException();
+      }
+
+      //public bool deleteAspNetRole(AspNetUserRoles role)
+      //{
+      //   throw new NotImplementedException();
+      //}
+
+      //public bool deleteAspNetUserClaim(AspNetUserClaims claim)
+      //{
+      //   throw new NotImplementedException();
+      //}
+
+      //public bool deleteAspNetUserLogin(AspNetUserLogins login)
+      //{
+      //   throw new NotImplementedException();
+      //}
+
+      //public bool deleteAspNetUserRoles(AspNetUserRoles userRole)
+      //{
+      //   throw new NotImplementedException();
+      //}
+
+      public bool deleteAspNetUsers(AspNetUsers user)
+      {
+         throw new NotImplementedException();
+      }
+
+      public bool deleteClient(ClientDTO client)
+      {
+         return logic.deleteClient(client);
+      }
+      #endregion
+
+      public void login(AspNetUsers user)
+      {
+         throw new NotImplementedException();
+      }
    }
 }

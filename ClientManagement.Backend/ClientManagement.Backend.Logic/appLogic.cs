@@ -264,7 +264,14 @@ namespace ClientManagement.Backend.Logic
 
       #endregion
 
-
+      public List<jobDTO> getJobsByUserComplete(string userId)
+      {
+         return getJobs().Where(m => m.UserId.Equals(userId) && m.Complete).ToList();
+      }
+      public List<jobDTO> getJobsByUserIncomplete(string userId)
+      {
+         return getJobs().Where(m => m.UserId.Equals(userId) && !m.Complete).ToList();
+      }
 
       public List<jobDTO> getJobs()
       {

@@ -48,42 +48,42 @@ namespace ClientManagement.Backend.Client
       #endregion
 
       #region get AspNetRoles functions
-      [OperationContract]
-      List<AspNetRoles> getAspNetRoles();
+      //[OperationContract]
+      //List<AspNetRoles> getAspNetRoles();
 
-      [OperationContract]
-      List<AspNetRoles> getAspNetRolesByName(string name);
+      //[OperationContract]
+      //List<AspNetRoles> getAspNetRolesByName(string name);
 
-      [OperationContract]
-      List<AspNetRoles> getAspNetRolesById(int Id);
+      //[OperationContract]
+      //List<AspNetRoles> getAspNetRolesById(int Id);
       #endregion
 
       #region get AspNetUserClaims functions
-      [OperationContract]
-      List<AspNetUserClaims> getAspNetUserClaims();
+      //[OperationContract]
+      //List<AspNetUserClaims> getAspNetUserClaims();
 
-      [OperationContract]
-      List<AspNetUserClaims> getAspNetUserClaimsById(int Id);
+      //[OperationContract]
+      //List<AspNetUserClaims> getAspNetUserClaimsById(int Id);
 
-      [OperationContract]
-      List<AspNetUserClaims> getAspNetUserClaimsByUserIdandClaimtypeandClaimValue(string userId, string claimType, string claimValue);
+      //[OperationContract]
+      //List<AspNetUserClaims> getAspNetUserClaimsByUserIdandClaimtypeandClaimValue(string userId, string claimType, string claimValue);
       #endregion
 
       #region get AspNetUserLogins functions
-      [OperationContract]
-      List<AspNetUserLogins> getAspNetUserLogins();
+      //[OperationContract]
+      //List<AspNetUserLogins> getAspNetUserLogins();
 
-      [OperationContract]
-      List<AspNetUserLogins> getAspNetUserLogin(string loginProvider,string providerKey,string userId);
+      //[OperationContract]
+      //List<AspNetUserLogins> getAspNetUserLogin(string loginProvider,string providerKey,string userId);
       #endregion
 
       #region AspNetUserRoles functions
 
-      [OperationContract]
-      List<AspNetUserRoles> getAspNetUserRoles();
+      //[OperationContract]
+      //List<AspNetUserRoles> getAspNetUserRoles();
 
-      [OperationContract]
-      List<AspNetUserRoles> getAspNetUserRole(string userId, string roleId);
+      //[OperationContract]
+      //List<AspNetUserRoles> getAspNetUserRole(string userId, string roleId);
 
       #endregion
 
@@ -116,6 +116,11 @@ namespace ClientManagement.Backend.Client
       #endregion
 
       [OperationContract]
+      List<jobDTO> getJobsByUserComplete(string userId);
+      [OperationContract]
+      List<jobDTO> getJobsByUserIncomplete(string userId);
+
+      [OperationContract]
       List<jobDTO> getjobs();
 
       [OperationContract]
@@ -134,17 +139,17 @@ namespace ClientManagement.Backend.Client
       [OperationContract]
       bool insertClients(ClientDTO client);
 
-      [OperationContract]
-      bool insertAspNetRoles(AspNetRoles role);
+      //[OperationContract]
+      //bool insertAspNetRoles(AspNetRoles role);
 
-      [OperationContract]
-      bool insertAspNetUserClaims(AspNetUserClaims claim);
+      //[OperationContract]
+      //bool insertAspNetUserClaims(AspNetUserClaims claim);
 
-      [OperationContract]
-      bool insertAspNetUserLogins(AspNetUserLogins login);
+      //[OperationContract]
+      //bool insertAspNetUserLogins(AspNetUserLogins login);
 
-      [OperationContract]
-      bool insertAspNetUserRoles(AspNetUserRoles userRole);
+      //[OperationContract]
+      //bool insertAspNetUserRoles(AspNetUserRoles userRole);
 
       [OperationContract]
       bool insertAddressDTOs(AddressDTO address);
@@ -165,17 +170,17 @@ namespace ClientManagement.Backend.Client
       [OperationContract]
       bool deleteAddress(AddressDTO address);
 
-      [OperationContract]
-      bool deleteAspNetRole(AspNetUserRoles role);
+      //[OperationContract]
+      //bool deleteAspNetRole(AspNetUserRoles role);
 
-      [OperationContract]
-      bool deleteAspNetUserClaim(AspNetUserClaims claim);
+      //[OperationContract]
+      //bool deleteAspNetUserClaim(AspNetUserClaims claim);
 
-      [OperationContract]
-      bool deleteAspNetUserLogin(AspNetUserLogins login);
+      //[OperationContract]
+      //bool deleteAspNetUserLogin(AspNetUserLogins login);
 
-      [OperationContract]
-      bool deleteAspNetUserRoles(AspNetUserRoles userRole);
+      //[OperationContract]
+      //bool deleteAspNetUserRoles(AspNetUserRoles userRole);
 
       [OperationContract]
       bool deleteAspNetUsers(AspNetUsers user);
@@ -196,17 +201,17 @@ namespace ClientManagement.Backend.Client
       [OperationContract]
       bool updateAddress(AddressDTO address);
 
-      [OperationContract]
-      bool updateAspNetRole(AspNetUserRoles role);
+      //[OperationContract]
+      //bool updateAspNetRole(AspNetUserRoles role);
 
-      [OperationContract]
-      bool updateAspNetUserClaim(AspNetUserClaims claim);
+      //[OperationContract]
+      //bool updateAspNetUserClaim(AspNetUserClaims claim);
 
-      [OperationContract]
-      bool updateAspNetUserLogin(AspNetUserLogins login);
+      //[OperationContract]
+      //bool updateAspNetUserLogin(AspNetUserLogins login);
 
-      [OperationContract]
-      bool updateAspNetUserRoles(AspNetUserRoles userRole);
+      //[OperationContract]
+      //bool updateAspNetUserRoles(AspNetUserRoles userRole);
 
       [OperationContract]
       bool updateAspNetUsers(AspNetUsers user);

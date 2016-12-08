@@ -11,7 +11,9 @@ namespace ClientManagement.Backend.Logic.Mapping
    {
       public static ClientDTO MapToClientDTO(ClientDAO b)
       {
+         
          var a = new ClientDTO();
+         a.Id = b.Id;
          a.AddressID = b.AddressID;
          a.Email = b.Email;
          a.Name = b.Name;
@@ -27,6 +29,7 @@ namespace ClientManagement.Backend.Logic.Mapping
       public static ClientDAO MapToClientDAO(ClientDTO b)
       {
          var a = new ClientDAO();
+         a.Id = b.Id;
          a.AddressID = b.AddressID;
          a.Email = b.Email;
          a.Name = b.Name;

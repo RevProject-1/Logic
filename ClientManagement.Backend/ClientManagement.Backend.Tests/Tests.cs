@@ -175,14 +175,16 @@ namespace ClientManagement.Backend.Tests
       public void testInsertJob()
       {
          var testjob = new jobDTO();
+         testjob.client = myLogic.getClientsByName("Derek Geter").FirstOrDefault();
+         testjob.type = myLogic.getServiceTypes().Where(m => m.Name.Equals("Butcher")).FirstOrDefault();
+         testjob.user = myLogic.getAspNetUsersByName("My Company").FirstOrDefault();
 
-         testjob.client = myLogic.getClientsByName("Revature").FirstOrDefault();
-         //testjob.ClientId=
-         testjob.EstimatedDuration = 6;
-         testjob.Notes = "some notes";
-         testjob.type = myLogic.getServiceTypes().Where(m => m.Name.Equals("test type 2")).FirstOrDefault();
-         testjob.StartDate = DateTime.Now;
-         testjob.user = myLogic.getAspNetUsersByName("Revature").FirstOrDefault();
+
+
+         //testjob.EstimatedDuration = 6;
+         //testjob.Notes = "some notes";
+         //testjob.StartDate = DateTime.Now;
+         testjob.ClientId = testjob.client.Id;
          testjob.UserId = testjob.user.Id;
          testjob.ServiceTypeId = testjob.type.Id;
          var result = myLogic.insertJob(testjob);

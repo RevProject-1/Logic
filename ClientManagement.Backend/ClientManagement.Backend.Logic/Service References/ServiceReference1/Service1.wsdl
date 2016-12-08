@@ -139,6 +139,30 @@
   <wsdl:message name="IService1_DeleteExpense_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteExpenseResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetJobExpenses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobExpenses" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetJobExpenses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobExpensesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddJobExpense_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddJobExpense" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddJobExpense_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddJobExpenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateJobExpense_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateJobExpense" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateJobExpense_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateJobExpenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteJobExpense_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteJobExpense" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteJobExpense_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteJobExpenseResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Register">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Register" message="tns:IService1_Register_InputMessage" />
@@ -227,6 +251,22 @@
     <wsdl:operation name="DeleteExpense">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteExpense" message="tns:IService1_DeleteExpense_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteExpenseResponse" message="tns:IService1_DeleteExpense_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobExpenses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetJobExpenses" message="tns:IService1_GetJobExpenses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetJobExpensesResponse" message="tns:IService1_GetJobExpenses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddJobExpense">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddJobExpense" message="tns:IService1_AddJobExpense_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddJobExpenseResponse" message="tns:IService1_AddJobExpense_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobExpense">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateJobExpense" message="tns:IService1_UpdateJobExpense_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateJobExpenseResponse" message="tns:IService1_UpdateJobExpense_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJobExpense">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteJobExpense" message="tns:IService1_DeleteJobExpense_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteJobExpenseResponse" message="tns:IService1_DeleteJobExpense_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -422,6 +462,42 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteExpense">
       <soap:operation soapAction="http://tempuri.org/IService1/DeleteExpense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobExpenses">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetJobExpenses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddJobExpense">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddJobExpense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobExpense">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateJobExpense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJobExpense">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteJobExpense" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

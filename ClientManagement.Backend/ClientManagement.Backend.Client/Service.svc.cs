@@ -17,17 +17,100 @@ namespace ClientManagement.Backend.Client
    {
       private appLogic logic = new appLogic();
 
+
+      #region jobExpenses
+
+      public List<JobExpenseDTO> getJobExpenses()
+      {
+         return logic.getJobExpenses();
+      }
+
+      public bool insertJobExpense(jobDTO job, ExpenseDTO expense)
+      {
+         return logic.insertJobExpense(job, expense);
+      }
+
+      public bool updateJobExpense(JobExpenseDTO je)
+      {
+         return logic.updateJobExpense(je);
+      }
+
+      public bool deleteJobExpense(JobExpenseDTO je)
+      {
+         return logic.deleteJobExpense(je);
+      }
+      #endregion
+
+      #region users
+      public bool updateAspNetUsers(AspNetUsers user)
+      {
+         return logic.updateAspNetUsers(user);
+      }
+      public bool deleteAspNetUsers(AspNetUsers user)
+      {
+         throw new NotImplementedException();
+      }
+      public bool insertAspNetUsers(AspNetUsers user)
+      {
+         return logic.insertAspNetUsers(user);
+      }
       public List<AspNetUsers> getUserById(string userId)
       {
          return logic.getUserById(userId);
       }
+
+      #region get aspnetuser functions
+      public List<AspNetUsers> getAspNetUsers()
+      {
+         return logic.getAspNetUsers();
+      }
+
+      public List<AspNetUsers> getAspNetUsersByName(string name)
+      {
+         return logic.getAspNetUsersByName(name);
+      }
+      #endregion
+      #endregion
+
+      #region servicetypes
+      public bool deleteServiceType(ServiceTypeDTO type)
+      {
+         return logic.deleteServiceType(type);
+      }
+      public bool updateServiceType(ServiceTypeDTO type)
+      {
+         return logic.updateServiceType(type);
+      }
+      public bool insertServiceType(ServiceTypeDTO type)
+      {
+         return logic.insertServiceType(type);
+      }
+
       public List<ServiceTypeDTO> getServiceTypeByName(string name)
       {
          return logic.getServiceTypeByName(name);
       }
+      #region get serviceType functions
+      public List<ServiceTypeDTO> getServiceTypes()
+      {
+         return logic.getServiceTypes();
+      }
+      #endregion
+      #endregion
 
-      #region get functions
-
+      #region addresses
+      public bool deleteAddress(AddressDTO address)
+      {
+         throw new NotImplementedException();
+      }
+      public bool insertAddressDTOs(AddressDTO address)
+      {
+         throw new NotImplementedException();
+      }
+      public bool updateAddress(AddressDTO address)
+      {
+         throw new NotImplementedException();
+      }
       #region get address functions
       public List<AddressDTO> getAddressDTOs()
       {
@@ -36,7 +119,7 @@ namespace ClientManagement.Backend.Client
 
       public List<AddressDTO> getAddressDTObyStreetandCityandStateandZip(string street, string city, string state, string zip)
       {
-         return logic.getAddressDTOsByStreetandCityandStateandZip(street,city,state,zip);
+         return logic.getAddressDTOsByStreetandCityandStateandZip(street, city, state, zip);
       }
 
       public List<AddressDTO> getAddressDTOByStreet(string street)
@@ -46,17 +129,17 @@ namespace ClientManagement.Backend.Client
 
       public List<AddressDTO> getAddressDTOByStreetandCity(string street, string city)
       {
-         return logic.getAddressDTOsByStreetandCity(street,city);
+         return logic.getAddressDTOsByStreetandCity(street, city);
       }
 
       public List<AddressDTO> getAddressDTOByStreetandCityandState(string street, string city, string state)
       {
-         return logic.getAddressDTOsByStreetandCityandState(street,city,state);
+         return logic.getAddressDTOsByStreetandCityandState(street, city, state);
       }
 
       public List<AddressDTO> getAddressDTOByStreetandCityandStateandZip(string street, string city, string state, string zip)
       {
-         return logic.getAddressDTOsByStreetandCityandStateandZip(street,city,state,zip);
+         return logic.getAddressDTOsByStreetandCityandStateandZip(street, city, state, zip);
       }
 
       public List<AddressDTO> getAddressDTOsByCity(string city)
@@ -74,6 +157,105 @@ namespace ClientManagement.Backend.Client
          return logic.getAddressDTOsByZip(zip);
       }
       #endregion
+
+      #endregion
+
+      #region jobs
+      public bool deleteJob(jobDTO job)
+      {
+         return logic.deleteJob(job);
+      }
+      public bool updateJob(jobDTO job)
+      {
+         return logic.updateJob(job);
+      }
+      public bool insertJob(jobDTO job)
+      {
+         var a = logic.getClientsByName(job.client.Name).FirstOrDefault();
+         var b = logic.getServiceTypes().Where(m => m.Name.Equals(job.type.Name)).FirstOrDefault();
+         var c = logic.getAspNetUsersByName(job.user.Name).FirstOrDefault();
+         job.UserId = c.Id;
+         job.ServiceTypeId = b.Id;
+         job.ClientId = a.Id;
+
+         return logic.insertJob(job);
+      }
+
+      #region get job functions
+      public List<jobDTO> getJobsByUserComplete(string userId)
+      {
+         return logic.getJobsByUserComplete(userId);
+      }
+
+      public List<jobDTO> getJobsByUserIncomplete(string userId)
+      {
+         return logic.getJobsByUserIncomplete(userId);
+      }
+
+      public List<jobDTO> getjobs()
+      {
+         return logic.getJobs().ToList();
+      }
+      #endregion
+
+      #endregion
+
+      #region client
+      public bool deleteClient(ClientDTO client)
+      {
+         return logic.deleteClient(client);
+      }
+      public bool updateClient(ClientDTO client)
+      {
+         return logic.updateClient(client);
+      }
+      public bool insertClients(ClientDTO client)
+      {
+         return logic.insertClients(client);
+      }
+
+      #region get client functions
+
+      public List<ClientDTO> getClientsByUserId(string userId)
+      {
+         return logic.getClientsByUserId(userId);
+      }
+
+
+      public List<ClientDTO> getClientsforUser(AspNetUsers user)
+      {
+         return logic.getClientsForUser(user);
+      }
+
+      public List<ClientDTO> getClients()
+      {
+         return logic.getClients();
+      }
+
+      public List<ClientDTO> getClientsByAddressId(int AddressId)
+      {
+         return logic.getClientsByAddressId(AddressId);
+      }
+
+      public List<ClientDTO> getClientsByEmail(string email)
+      {
+         return logic.getClientsByEmail(email);
+      }
+
+      public List<ClientDTO> getClientsByName(string name)
+      {
+         return logic.getClientsByName(name);
+      }
+
+      public List<ClientDTO> getClientsByPhoneNumber(string phoneNumber)
+      {
+         return logic.getClientsByPhoneNumber(phoneNumber);
+      }
+      #endregion
+
+      #endregion
+
+      #region unimplemented
 
       #region get aspnetroles functions
       //public List<AspNetRoles> getAspNetRoles()
@@ -133,101 +315,6 @@ namespace ClientManagement.Backend.Client
       //}
       #endregion
 
-      #region get aspnetuser functions
-      public List<AspNetUsers> getAspNetUsers()
-      {
-         return logic.getAspNetUsers();
-      }
-
-      public List<AspNetUsers> getAspNetUsersByName(string name)
-      {
-         return logic.getAspNetUsersByName(name);
-      }
-      #endregion
-
-      #region get client functions
-
-      public List<ClientDTO> getClientsByUserId(string userId)
-      {
-         return logic.getClientsByUserId(userId);
-      }
-      
-
-      public List<ClientDTO> getClientsforUser(AspNetUsers user)
-      {
-         return logic.getClientsForUser(user);
-      }
-
-      public List<ClientDTO> getClients()
-      {
-         return logic.getClients();
-      }
-
-      public List<ClientDTO> getClientsByAddressId(int AddressId)
-      {
-         return logic.getClientsByAddressId(AddressId);
-      }
-
-      public List<ClientDTO> getClientsByEmail(string email)
-      {
-         return logic.getClientsByEmail(email);
-      }
-
-      public List<ClientDTO> getClientsByName(string name)
-      {
-         return logic.getClientsByName(name);
-      }
-
-      public List<ClientDTO> getClientsByPhoneNumber(string phoneNumber)
-      {
-         return logic.getClientsByPhoneNumber(phoneNumber);
-      }
-      #endregion
-
-      #region get job functions
-      public List<jobDTO> getJobsByUserComplete(string userId)
-      {
-         return logic.getJobsByUserComplete(userId);
-      }
-
-      public List<jobDTO> getJobsByUserIncomplete(string userId)
-      {
-         return logic.getJobsByUserIncomplete(userId);
-      }
-
-      public List<jobDTO> getjobs()
-      {
-         return logic.getJobs().ToList();          
-      }
-      #endregion
-
-      #region get serviceType functions
-      public List<ServiceTypeDTO> getServiceTypes()
-      {
-         return logic.getServiceTypes();
-      }
-      #endregion
-
-      #endregion
-
-
-      #region insert functions
-
-      public bool insertJob(jobDTO job)
-      {
-         return logic.insertJob(job);
-      }
-
-      public bool insertServiceType(ServiceTypeDTO type)
-      {
-         return logic.insertServiceType(type);
-      }
-
-      public bool insertAddressDTOs(AddressDTO address)
-      {
-         throw new NotImplementedException();
-      }
-
       //public bool insertAspNetRoles(AspNetRoles role)
       //{
       //   throw new NotImplementedException();
@@ -247,31 +334,6 @@ namespace ClientManagement.Backend.Client
       //{
       //   throw new NotImplementedException();
       //}
-
-      public bool insertAspNetUsers(AspNetUsers user)
-      {
-         return logic.insertAspNetUsers(user);
-      }
-
-      public bool insertClients(ClientDTO client)
-      {
-         return logic.insertClients(client);
-      }
-      #endregion
-     
-
-      #region update functions
-
-      public bool updateServiceType(ServiceTypeDTO type)
-      {
-         return logic.updateServiceType(type);
-      }
-
-      public bool updateAddress(AddressDTO address)
-      {
-         throw new NotImplementedException();
-      }
-
       //public bool updateAspNetRole(AspNetUserRoles role)
       //{
       //   throw new NotImplementedException();
@@ -291,49 +353,6 @@ namespace ClientManagement.Backend.Client
       //{
       //   throw new NotImplementedException();
       //}
-
-      public bool updateAspNetUsers(AspNetUsers user)
-      {
-         return logic.updateAspNetUsers(user);
-      }
-
-      public bool updateClient(ClientDTO client)
-      {
-         return logic.updateClient(client);
-      }
-
-      public bool updateJob(jobDTO job)
-      {
-         return logic.updateJob(job);
-      }
-
-
-
-
-
-
-
-
-      #endregion
-
-
-      #region delete functions
-
-      public bool deleteJob(jobDTO job)
-      {
-         return logic.deleteJob(job);
-      }
-
-      public bool deleteServiceType(ServiceTypeDTO type)
-      {
-         return logic.deleteServiceType(type);
-      }
-
-      public bool deleteAddress(AddressDTO address)
-      {
-         throw new NotImplementedException();
-      }
-
       //public bool deleteAspNetRole(AspNetUserRoles role)
       //{
       //   throw new NotImplementedException();
@@ -353,21 +372,44 @@ namespace ClientManagement.Backend.Client
       //{
       //   throw new NotImplementedException();
       //}
+      #endregion
 
-      public bool deleteAspNetUsers(AspNetUsers user)
+      #region expenses
+      public List<ExpenseDTO> getExpenses()
       {
-         throw new NotImplementedException();
+         return logic.getExpenses();
       }
 
-      public bool deleteClient(ClientDTO client)
+      public bool insertExpense(ExpenseDTO expense)
       {
-         return logic.deleteClient(client);
+         return logic.insertExpense(expense);
+      }
+
+      public bool updateExpense(ExpenseDTO expense)
+      {
+         return logic.updateExpense(expense);
+      }
+
+      public bool deleteExpense(ExpenseDTO expense)
+      {
+         return logic.deleteExpense(expense);
       }
       #endregion
+
 
       public void login(AspNetUsers user)
       {
          throw new NotImplementedException();
+      }
+
+      public bool completeJob(jobDTO job)
+      {
+         return logic.completeJob(job);
+      }
+
+      public Invoice generateInvoice(jobDTO job)
+      {
+         return logic.generateInvoice(job);
       }
    }
 }

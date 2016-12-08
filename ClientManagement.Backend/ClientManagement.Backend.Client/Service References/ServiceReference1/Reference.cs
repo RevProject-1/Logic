@@ -146,6 +146,30 @@ namespace ClientManagement.Backend.Client.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteExpense", ReplyAction="http://tempuri.org/IService1/DeleteExpenseResponse")]
         System.Threading.Tasks.Task<bool> DeleteExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetJobExpenses", ReplyAction="http://tempuri.org/IService1/GetJobExpensesResponse")]
+        ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO[] GetJobExpenses();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetJobExpenses", ReplyAction="http://tempuri.org/IService1/GetJobExpensesResponse")]
+        System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO[]> GetJobExpensesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddJobExpense", ReplyAction="http://tempuri.org/IService1/AddJobExpenseResponse")]
+        bool AddJobExpense(ClientManagement.Backend.Logic.ServiceReference1.JobDAO jn, ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddJobExpense", ReplyAction="http://tempuri.org/IService1/AddJobExpenseResponse")]
+        System.Threading.Tasks.Task<bool> AddJobExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.JobDAO jn, ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateJobExpense", ReplyAction="http://tempuri.org/IService1/UpdateJobExpenseResponse")]
+        bool UpdateJobExpense(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateJobExpense", ReplyAction="http://tempuri.org/IService1/UpdateJobExpenseResponse")]
+        System.Threading.Tasks.Task<bool> UpdateJobExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteJobExpense", ReplyAction="http://tempuri.org/IService1/DeleteJobExpenseResponse")]
+        bool DeleteJobExpense(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteJobExpense", ReplyAction="http://tempuri.org/IService1/DeleteJobExpenseResponse")]
+        System.Threading.Tasks.Task<bool> DeleteJobExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -349,6 +373,38 @@ namespace ClientManagement.Backend.Client.ServiceReference1 {
         
         public System.Threading.Tasks.Task<bool> DeleteExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex) {
             return base.Channel.DeleteExpenseAsync(ex);
+        }
+        
+        public ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO[] GetJobExpenses() {
+            return base.Channel.GetJobExpenses();
+        }
+        
+        public System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO[]> GetJobExpensesAsync() {
+            return base.Channel.GetJobExpensesAsync();
+        }
+        
+        public bool AddJobExpense(ClientManagement.Backend.Logic.ServiceReference1.JobDAO jn, ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex) {
+            return base.Channel.AddJobExpense(jn, ex);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddJobExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.JobDAO jn, ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex) {
+            return base.Channel.AddJobExpenseAsync(jn, ex);
+        }
+        
+        public bool UpdateJobExpense(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex) {
+            return base.Channel.UpdateJobExpense(ex);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateJobExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex) {
+            return base.Channel.UpdateJobExpenseAsync(ex);
+        }
+        
+        public bool DeleteJobExpense(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex) {
+            return base.Channel.DeleteJobExpense(ex);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteJobExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex) {
+            return base.Channel.DeleteJobExpenseAsync(ex);
         }
     }
 }

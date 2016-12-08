@@ -24,23 +24,40 @@ namespace ClientManagement.Backend.Logic.Mapping
          a.type = Mapping.ServiceTypeMapper.MaptoServiceTypeDTO(b.ServiceType);
          a.user = Mapping.AspNetUserMapper.mapToAspNetUsers(b.User);
          a.UserId = b.UserID;
+         a.Hours = b.Hours;
          return a;
       }
 
       public static JobDAO mapToJobDAO(jobDTO b)
       {
          JobDAO a = new JobDAO();
-         a.Client = Mapping.ClientMapper.MapToClientDAO(b.client);
+         if (b.client!=null)
+         {
+            a.Client = Mapping.ClientMapper.MapToClientDAO(b.client); 
+         }
          a.ClientID = b.ClientId;
          a.Complete = b.Complete;
          a.EstimatedDuration = b.EstimatedDuration;
          a.Id = b.Id;
          a.Notes = b.Notes;
          a.ServiceTypeID = b.ServiceTypeId;
-         a.StartDate = b.StartDate;
-         a.ServiceType = Mapping.ServiceTypeMapper.MaptoServiceTypeDAO(b.type);
-         a.User = Mapping.AspNetUserMapper.mapToUserDAO(b.user);
+         if(b.StartDate!=null)
+         {
+            a.StartDate = b.StartDate;
+
+         }
+         if (b.type!=null)
+         {
+            a.ServiceType = Mapping.ServiceTypeMapper.MaptoServiceTypeDAO(b.type);
+
+         }
+         if(b.user!=null)
+         {
+            a.User = Mapping.AspNetUserMapper.mapToUserDAO(b.user);
+
+         }
          a.UserID = b.UserId;
+         a.Hours = b.Hours;
          return a;
       }
    }

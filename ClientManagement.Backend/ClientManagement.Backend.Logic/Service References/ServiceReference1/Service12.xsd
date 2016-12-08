@@ -297,4 +297,59 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetJobExpenses">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobExpensesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ClientManagement.DbService.Models" minOccurs="0" name="GetJobExpensesResult" nillable="true" type="q23:ArrayOfJobExpenseDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddJobExpense">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ClientManagement.DbService.Models" minOccurs="0" name="jn" nillable="true" type="q24:JobDAO" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ClientManagement.DbService.Models" minOccurs="0" name="ex" nillable="true" type="q25:ExpenseDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddJobExpenseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddJobExpenseResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateJobExpense">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ClientManagement.DbService.Models" minOccurs="0" name="ex" nillable="true" type="q26:JobExpenseDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateJobExpenseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateJobExpenseResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteJobExpense">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ClientManagement.DbService.Models" minOccurs="0" name="ex" nillable="true" type="q27:JobExpenseDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteJobExpenseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteJobExpenseResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

@@ -12,12 +12,9 @@ namespace ClientManagement.Backend.Client
    [ServiceContract]
    public interface IService
    {
+      #region AspNetUsers
       [OperationContract]
-      List<AspNetUsers> getUserById(string userId);
-      [OperationContract]
-      List<ServiceTypeDTO> getServiceTypeByName(string name);
-
-      #region get functions
+      bool insertAspNetUsers(AspNetUsers user);
 
       #region get AspNetUsers functions
       [OperationContract]
@@ -25,7 +22,20 @@ namespace ClientManagement.Backend.Client
 
       [OperationContract]
       List<AspNetUsers> getAspNetUsersByName(string name);
+
+      [OperationContract]
+      List<AspNetUsers> getUserById(string userId);
+
       #endregion
+
+      [OperationContract]
+      bool deleteAspNetUsers(AspNetUsers user);
+
+      [OperationContract]
+      bool updateAspNetUsers(AspNetUsers user);
+      #endregion
+
+      #region Clients
 
       #region get client functions
 
@@ -50,6 +60,112 @@ namespace ClientManagement.Backend.Client
       [OperationContract]
       List<ClientDTO> getClientsByAddressId(int AddressId);
       #endregion
+
+      [OperationContract]
+      bool insertClients(ClientDTO client);
+
+      [OperationContract]
+      bool deleteClient(ClientDTO client);
+
+      [OperationContract]
+      bool updateClient(ClientDTO client);
+      #endregion
+
+      #region servicetypes
+
+      [OperationContract]
+      List<ServiceTypeDTO> getServiceTypeByName(string name);
+
+      [OperationContract]
+      List<ServiceTypeDTO> getServiceTypes();
+
+      [OperationContract]
+      bool insertServiceType(ServiceTypeDTO type);
+
+      [OperationContract]
+      bool deleteServiceType(ServiceTypeDTO type);
+
+      [OperationContract]
+      bool updateServiceType(ServiceTypeDTO type);
+      #endregion
+
+      #region addresses
+
+      #region get AddressDTO functions
+
+      [OperationContract]
+      List<AddressDTO> getAddressDTOs();
+
+      [OperationContract]
+      List<AddressDTO> getAddressDTOByStreetandCityandStateandZip(string street, string city, string state, string zip);
+
+      [OperationContract]
+      List<AddressDTO> getAddressDTOByStreet(string street);
+
+      [OperationContract]
+      List<AddressDTO> getAddressDTOByStreetandCity(string street, string city);
+
+      [OperationContract]
+      List<AddressDTO> getAddressDTOByStreetandCityandState(string street, string city, string state);
+
+      [OperationContract]
+      List<AddressDTO> getAddressDTOsByZip(string zip);
+
+      [OperationContract]
+      List<AddressDTO> getAddressDTOsByState(string state);
+
+      [OperationContract]
+      List<AddressDTO> getAddressDTOsByCity(string city);
+
+      #endregion
+
+      [OperationContract]
+      bool insertAddressDTOs(AddressDTO address);
+
+      [OperationContract]
+      bool deleteAddress(AddressDTO address);
+
+      [OperationContract]
+      bool updateAddress(AddressDTO address);
+      #endregion
+
+      #region jobexpenses
+
+      [OperationContract]
+      List<JobExpenseDTO> getJobExpenses();
+
+      [OperationContract]
+      bool insertJobExpense(jobDTO job, ExpenseDTO expense);
+
+      [OperationContract]
+      bool updateJobExpense(JobExpenseDTO je);
+
+      [OperationContract]
+      bool deleteJobExpense(JobExpenseDTO je);
+
+      #endregion
+
+      #region jobs
+      [OperationContract]
+      List<jobDTO> getJobsByUserComplete(string userId);
+
+      [OperationContract]
+      List<jobDTO> getJobsByUserIncomplete(string userId);
+
+      [OperationContract]
+      List<jobDTO> getjobs();
+
+      [OperationContract]
+      bool insertJob(jobDTO job);
+
+      [OperationContract]
+      bool deleteJob(jobDTO job);
+
+      [OperationContract]
+      bool updateJob(jobDTO job);
+      #endregion
+
+      #region unimplemented
 
       #region get AspNetRoles functions
       //[OperationContract]
@@ -91,58 +207,6 @@ namespace ClientManagement.Backend.Client
 
       #endregion
 
-      #region get AddressDTO functions
-
-      [OperationContract]
-      List<AddressDTO> getAddressDTOs();
-
-      [OperationContract]
-      List<AddressDTO> getAddressDTOByStreetandCityandStateandZip(string street, string city, string state, string zip);
-
-      [OperationContract]
-      List<AddressDTO> getAddressDTOByStreet(string street);
-
-      [OperationContract]
-      List<AddressDTO> getAddressDTOByStreetandCity(string street, string city);
-
-      [OperationContract]
-      List<AddressDTO> getAddressDTOByStreetandCityandState(string street, string city, string state);
-
-      [OperationContract]
-      List<AddressDTO> getAddressDTOsByZip(string zip);
-
-      [OperationContract]
-      List<AddressDTO> getAddressDTOsByState(string state);
-
-      [OperationContract]
-      List<AddressDTO> getAddressDTOsByCity(string city);
-
-      #endregion
-
-      [OperationContract]
-      List<jobDTO> getJobsByUserComplete(string userId);
-      [OperationContract]
-      List<jobDTO> getJobsByUserIncomplete(string userId);
-
-      [OperationContract]
-      List<jobDTO> getjobs();
-
-      [OperationContract]
-      List<ServiceTypeDTO> getServiceTypes();
-
-      #endregion
-
-      #region Insert Functions
-
-      [OperationContract]
-      bool insertJob(jobDTO job);
-
-      [OperationContract]
-      bool insertAspNetUsers(AspNetUsers user);
-
-      [OperationContract]
-      bool insertClients(ClientDTO client);
-
       //[OperationContract]
       //bool insertAspNetRoles(AspNetRoles role);
 
@@ -154,25 +218,6 @@ namespace ClientManagement.Backend.Client
 
       //[OperationContract]
       //bool insertAspNetUserRoles(AspNetUserRoles userRole);
-
-      [OperationContract]
-      bool insertAddressDTOs(AddressDTO address);
-
-      [OperationContract]
-      bool insertServiceType(ServiceTypeDTO type);
-
-      #endregion
-
-      #region delete functions
-
-      [OperationContract]
-      bool deleteJob(jobDTO job);
-
-      [OperationContract]
-      bool deleteServiceType(ServiceTypeDTO type);
-
-      [OperationContract]
-      bool deleteAddress(AddressDTO address);
 
       //[OperationContract]
       //bool deleteAspNetRole(AspNetUserRoles role);
@@ -186,25 +231,6 @@ namespace ClientManagement.Backend.Client
       //[OperationContract]
       //bool deleteAspNetUserRoles(AspNetUserRoles userRole);
 
-      [OperationContract]
-      bool deleteAspNetUsers(AspNetUsers user);
-
-      [OperationContract]
-      bool deleteClient(ClientDTO client);
-
-      #endregion
-
-      #region update functions
-
-      [OperationContract]
-      bool updateJob(jobDTO job);
-
-      [OperationContract]
-      bool updateServiceType(ServiceTypeDTO type);
-
-      [OperationContract]
-      bool updateAddress(AddressDTO address);
-
       //[OperationContract]
       //bool updateAspNetRole(AspNetUserRoles role);
 
@@ -216,17 +242,21 @@ namespace ClientManagement.Backend.Client
 
       //[OperationContract]
       //bool updateAspNetUserRoles(AspNetUserRoles userRole);
-
-      [OperationContract]
-      bool updateAspNetUsers(AspNetUsers user);
-
-      [OperationContract]
-      bool updateClient(ClientDTO client);
-
-
       #endregion
 
       void login(AspNetUsers user);
+      [OperationContract]
+      bool completeJob(jobDTO job);
+      [OperationContract]
+      List<ExpenseDTO> getExpenses();
+      [OperationContract]
+      bool insertExpense(ExpenseDTO expense);
+      [OperationContract]
+      bool updateExpense(ExpenseDTO expense);
+      [OperationContract]
+      bool deleteExpense(ExpenseDTO expense);
+      [OperationContract]
+      Invoice generateInvoice(jobDTO job);
    }
 }
 

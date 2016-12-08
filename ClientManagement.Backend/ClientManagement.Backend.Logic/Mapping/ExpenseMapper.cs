@@ -10,9 +10,22 @@ namespace ClientManagement.Backend.Logic.Mapping
 {
    public class ExpenseMapper
    {
-      //public ExpenseDTO mapToExpenseDTO(ExpenseDAO expense)
-      //{
+      public static ExpenseDTO mapToExpenseDTO(ExpenseDAO b)
+      {
+         ExpenseDTO a = new ExpenseDTO();
+         a.Cost = b.Cost;
+         a.Id = b.Id;
+         a.Name = b.Name;
+         return a;
+      }
 
-      //}
+      public static ExpenseDAO mapToExpenseDAO(ExpenseDTO b)
+      {
+         ExpenseDAO a = new ExpenseDAO();
+         a.Cost = b.Cost;
+         a.Id = b.Id;
+         a.Name = b.Name;
+         return a;
+      }
    }
 }

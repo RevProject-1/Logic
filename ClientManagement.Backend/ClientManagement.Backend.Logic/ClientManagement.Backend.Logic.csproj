@@ -43,6 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="appLogic.cs" />
+    <Compile Include="appLogicAddresses.cs" />
+    <Compile Include="appLogicAspNetUsers.cs" />
+    <Compile Include="appLogicClients.cs" />
+    <Compile Include="appLogicExpenses.cs" />
+    <Compile Include="appLogicInvoices.cs" />
+    <Compile Include="appLogicJobExpenses.cs" />
+    <Compile Include="appLogicJobs.cs" />
+    <Compile Include="appLogicServiceTypes.cs" />
     <Compile Include="Mapping\AddressMapper.cs" />
     <Compile Include="Mapping\AspNetUserMapper.cs" />
     <Compile Include="Mapping\ClientMapper.cs" />
@@ -58,6 +66,8 @@
     <Compile Include="Models\AspNetUsers.cs" />
     <Compile Include="Models\ClientDTO.cs" />
     <Compile Include="Models\ExpenseDTO.cs" />
+    <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\InvoiceExpenses.cs" />
     <Compile Include="Models\jobDTO.cs" />
     <Compile Include="Models\JobExpenseDTO.cs" />
     <Compile Include="Models\ServiceTypeDTO.cs" />
@@ -83,6 +93,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\ClientManagement.Backend.Logic.ServiceReference1.JobDAO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\ClientManagement.Backend.Logic.ServiceReference1.ServiceTypeDAO.datasource">

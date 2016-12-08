@@ -679,7 +679,7 @@ namespace ClientManagement.Backend.Logic.ServiceReference1 {
         private System.Nullable<int> EstimatedDurationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal HoursField;
+        private System.Nullable<decimal> HoursField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
@@ -765,7 +765,7 @@ namespace ClientManagement.Backend.Logic.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Hours {
+        public System.Nullable<decimal> Hours {
             get {
                 return this.HoursField;
             }
@@ -955,6 +955,131 @@ namespace ClientManagement.Backend.Logic.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="JobExpenseDAO", Namespace="http://schemas.datacontract.org/2004/07/ClientManagement.DbService.Models")]
+    [System.SerializableAttribute()]
+    public partial class JobExpenseDAO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ExpenseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ExpenseIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal HoursField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientManagement.Backend.Logic.ServiceReference1.JobDAO JobField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int JobIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO Expense {
+            get {
+                return this.ExpenseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExpenseField, value) != true)) {
+                    this.ExpenseField = value;
+                    this.RaisePropertyChanged("Expense");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ExpenseID {
+            get {
+                return this.ExpenseIDField;
+            }
+            set {
+                if ((this.ExpenseIDField.Equals(value) != true)) {
+                    this.ExpenseIDField = value;
+                    this.RaisePropertyChanged("ExpenseID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Hours {
+            get {
+                return this.HoursField;
+            }
+            set {
+                if ((this.HoursField.Equals(value) != true)) {
+                    this.HoursField = value;
+                    this.RaisePropertyChanged("Hours");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClientManagement.Backend.Logic.ServiceReference1.JobDAO Job {
+            get {
+                return this.JobField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JobField, value) != true)) {
+                    this.JobField = value;
+                    this.RaisePropertyChanged("Job");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int JobID {
+            get {
+                return this.JobIDField;
+            }
+            set {
+                if ((this.JobIDField.Equals(value) != true)) {
+                    this.JobIDField = value;
+                    this.RaisePropertyChanged("JobID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -1090,6 +1215,30 @@ namespace ClientManagement.Backend.Logic.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteExpense", ReplyAction="http://tempuri.org/IService1/DeleteExpenseResponse")]
         System.Threading.Tasks.Task<bool> DeleteExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetJobExpenses", ReplyAction="http://tempuri.org/IService1/GetJobExpensesResponse")]
+        ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO[] GetJobExpenses();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetJobExpenses", ReplyAction="http://tempuri.org/IService1/GetJobExpensesResponse")]
+        System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO[]> GetJobExpensesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddJobExpense", ReplyAction="http://tempuri.org/IService1/AddJobExpenseResponse")]
+        bool AddJobExpense(ClientManagement.Backend.Logic.ServiceReference1.JobDAO jn, ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddJobExpense", ReplyAction="http://tempuri.org/IService1/AddJobExpenseResponse")]
+        System.Threading.Tasks.Task<bool> AddJobExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.JobDAO jn, ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateJobExpense", ReplyAction="http://tempuri.org/IService1/UpdateJobExpenseResponse")]
+        bool UpdateJobExpense(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateJobExpense", ReplyAction="http://tempuri.org/IService1/UpdateJobExpenseResponse")]
+        System.Threading.Tasks.Task<bool> UpdateJobExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteJobExpense", ReplyAction="http://tempuri.org/IService1/DeleteJobExpenseResponse")]
+        bool DeleteJobExpense(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteJobExpense", ReplyAction="http://tempuri.org/IService1/DeleteJobExpenseResponse")]
+        System.Threading.Tasks.Task<bool> DeleteJobExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1293,6 +1442,38 @@ namespace ClientManagement.Backend.Logic.ServiceReference1 {
         
         public System.Threading.Tasks.Task<bool> DeleteExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex) {
             return base.Channel.DeleteExpenseAsync(ex);
+        }
+        
+        public ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO[] GetJobExpenses() {
+            return base.Channel.GetJobExpenses();
+        }
+        
+        public System.Threading.Tasks.Task<ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO[]> GetJobExpensesAsync() {
+            return base.Channel.GetJobExpensesAsync();
+        }
+        
+        public bool AddJobExpense(ClientManagement.Backend.Logic.ServiceReference1.JobDAO jn, ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex) {
+            return base.Channel.AddJobExpense(jn, ex);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddJobExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.JobDAO jn, ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO ex) {
+            return base.Channel.AddJobExpenseAsync(jn, ex);
+        }
+        
+        public bool UpdateJobExpense(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex) {
+            return base.Channel.UpdateJobExpense(ex);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateJobExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex) {
+            return base.Channel.UpdateJobExpenseAsync(ex);
+        }
+        
+        public bool DeleteJobExpense(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex) {
+            return base.Channel.DeleteJobExpense(ex);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteJobExpenseAsync(ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO ex) {
+            return base.Channel.DeleteJobExpenseAsync(ex);
         }
     }
 }

@@ -198,11 +198,27 @@ namespace ClientManagement.Backend.Tests
       [Fact]
       public void testDeleteJob()
       {
-         var insertedJob = myLogic.getJobs().Where(a => a.Id == myLogic.getJobs().Max(b => b.Id)).FirstOrDefault();
-         var result = myLogic.deleteJob(insertedJob);         
+         var testjob = myLogic.getJobs().ElementAt(2);
+
+         var result = myLogic.deleteJob(testjob);         
          Assert.True(result);
       }
       #endregion     
-
+      [Fact]
+      public void testGenerateInvoice()
+      {
+         var testjob = myLogic.getJobs().FirstOrDefault();
+         testjob.StartDate = DateTime.Now;
+         testjob.Notes = "job updated";
+         var result = myLogic.updateJob(testjob);
+         var result2 = myLogic.generateInvoice(testjob);
+      }
+      [Fact]
+      public void testInsertExpense()
+      {
+         var result = myLogic.insertExpense(new ExpenseDTO { Name = "test expense", Cost = 25.99m });
+         var result2 = myLogic.insertJobExpense(myLogic.getJobs().FirstOrDefault(), myLogic.getExpenses().Where(m => m.Name.Equals("test expense")).FirstOrDefault());
+         Assert.True(result && result2);
+      }
    }
 }

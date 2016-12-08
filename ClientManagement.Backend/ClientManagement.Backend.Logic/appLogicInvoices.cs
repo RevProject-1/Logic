@@ -12,6 +12,7 @@ namespace ClientManagement.Backend.Logic
       public Invoice generateInvoice(jobDTO job)
       {
          Invoice invoice = new Invoice();
+         invoice.expenses = new List<InvoiceExpenses>();
          invoice.BusinessName = job.user.Name;
          invoice.BusinessPhoneNumber = job.user.PhoneNumber;
          invoice.ClientName = job.client.Name;

@@ -161,6 +161,14 @@ namespace ClientManagement.Backend.Client
       #endregion
 
       #region jobs
+      public List<jobDTO> getJobsForUser(string userId)
+      {
+         return logic.getJobsForUser(userId);
+      }
+      public bool completeJob(jobDTO job)
+      {
+         return logic.completeJob(job);
+      }
       public bool deleteJob(jobDTO job)
       {
          return logic.deleteJob(job);
@@ -396,25 +404,22 @@ namespace ClientManagement.Backend.Client
       }
       #endregion
 
+      #region invoice
+      public Invoice generateInvoice(jobDTO job)
+      {
+         return logic.generateInvoice(job);
+      } 
+      #endregion
 
       public void login(AspNetUsers user)
       {
          throw new NotImplementedException();
       }
 
-      public bool completeJob(jobDTO job)
-      {
-         return logic.completeJob(job);
-      }
+      
 
-      public Invoice generateInvoice(jobDTO job)
-      {
-         return logic.generateInvoice(job);
-      }
+     
 
-      public List<jobDTO> getJobsForUser(string userId)
-      {
-         return logic.getJobsForUser(userId);
-      }
+     
    }
 }

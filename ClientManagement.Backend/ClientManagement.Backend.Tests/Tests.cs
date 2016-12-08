@@ -203,7 +203,9 @@ namespace ClientManagement.Backend.Tests
          var result = myLogic.deleteJob(testjob);         
          Assert.True(result);
       }
-      #endregion     
+      #endregion
+
+      #region invoice tests
       [Fact]
       public void testGenerateInvoice()
       {
@@ -212,13 +214,17 @@ namespace ClientManagement.Backend.Tests
          testjob.Notes = "job updated";
          var result = myLogic.updateJob(testjob);
          var result2 = myLogic.generateInvoice(testjob);
-      }
+      } 
+      #endregion
+      
+      #region expense tests
       [Fact]
       public void testInsertExpense()
       {
          var result = myLogic.insertExpense(new ExpenseDTO { Name = "test expense", Cost = 25.99m });
          var result2 = myLogic.insertJobExpense(myLogic.getJobs().FirstOrDefault(), myLogic.getExpenses().Where(m => m.Name.Equals("test expense")).FirstOrDefault());
          Assert.True(result && result2);
-      }
+      } 
+      #endregion
    }
 }

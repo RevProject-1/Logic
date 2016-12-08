@@ -147,6 +147,8 @@ namespace ClientManagement.Backend.Client
 
       #region jobs
       [OperationContract]
+      bool completeJob(jobDTO job);
+      [OperationContract]
       List<jobDTO> getJobsForUser(string userId);
       [OperationContract]
       List<jobDTO> getJobsByUserComplete(string userId);
@@ -246,9 +248,7 @@ namespace ClientManagement.Backend.Client
       //bool updateAspNetUserRoles(AspNetUserRoles userRole);
       #endregion
 
-      void login(AspNetUsers user);
-      [OperationContract]
-      bool completeJob(jobDTO job);
+      #region expenses
       [OperationContract]
       List<ExpenseDTO> getExpenses();
       [OperationContract]
@@ -257,8 +257,17 @@ namespace ClientManagement.Backend.Client
       bool updateExpense(ExpenseDTO expense);
       [OperationContract]
       bool deleteExpense(ExpenseDTO expense);
+      #endregion
+
+      #region invoice
       [OperationContract]
       Invoice generateInvoice(jobDTO job);
+      #endregion
+
+      void login(AspNetUsers user);
+     
+     
+     
    }
 }
 

@@ -9,6 +9,10 @@ namespace ClientManagement.Backend.Logic
 {
    public partial class appLogic
    {
+      public List<jobDTO> getJobsForUser(string userId)
+      {
+         return getJobs().Where(m => m.UserId.Equals(userId)).ToList();
+      }
       public List<jobDTO> getJobsByUserComplete(string userId)
       {
          return getJobs().Where(m => m.UserId.Equals(userId) && m.Complete).ToList();
@@ -24,6 +28,8 @@ namespace ClientManagement.Backend.Logic
          var list2 = new List<jobDTO>();
          foreach (var item in list)
          {
+            var user=getUserById(item.UserID).FirstOrDefault();
+            item.User = Mapping.AspNetUserMapper.mapToUserDAO(user);
             list2.Add(Mapping.JobMapper.mapToJobDTO(item));
          }
          return list2;

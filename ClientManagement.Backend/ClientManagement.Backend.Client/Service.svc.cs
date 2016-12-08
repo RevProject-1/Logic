@@ -411,5 +411,10 @@ namespace ClientManagement.Backend.Client
       {
          return logic.generateInvoice(job);
       }
+
+      public List<jobDTO> getJobsForUser(string userId)
+      {
+         return logic.getJobsForUser(userId);
+      }
    }
 }

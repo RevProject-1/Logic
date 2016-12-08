@@ -147,6 +147,8 @@ namespace ClientManagement.Backend.Client
 
       #region jobs
       [OperationContract]
+      List<jobDTO> getJobsForUser(string userId);
+      [OperationContract]
       List<jobDTO> getJobsByUserComplete(string userId);
 
       [OperationContract]

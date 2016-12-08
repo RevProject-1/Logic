@@ -9,10 +9,13 @@ using ClientManagement.Backend.Logic.Models;
 using ClientManagement.Backend.Logic;
 using ClientManagement.Backend.Logic.ServiceReference1;
 
+using DevTrends.WCFDataAnnotations;
+
 namespace ClientManagement.Backend.Client
 {
    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
    // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
+   [ValidateDataAnnotationsBehavior]
    public class Service1 : IService
    {
       private appLogic logic = new appLogic();

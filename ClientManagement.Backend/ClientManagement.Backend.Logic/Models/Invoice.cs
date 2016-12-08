@@ -39,9 +39,13 @@ namespace ClientManagement.Backend.Logic.Models
       [DataMember]
       public List<InvoiceExpenses> expenses { get; set; }
       [DataMember]
-      public string totalExpenses { get; set; }
+      public string totalExpensesString { get; set; }
       [DataMember]
-      public string subTotal { get; set; }
+      public string subTotalString { get; set; }
+      [DataMember]
+      public decimal? totalExpenses { get; set; }
+      [DataMember]
+      public decimal? subTotal { get; set; }
       //[DataMember]
       //public string Total { get; set; }
       [DataMember]

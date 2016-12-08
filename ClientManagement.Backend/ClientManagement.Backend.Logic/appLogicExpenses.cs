@@ -22,6 +22,7 @@ namespace ClientManagement.Backend.Logic
 
       public bool insertExpense(ExpenseDTO expense)
       {
+         expense.Name = stringFormatter(expense.Name).ToString();
          return sc.AddExpense(Mapping.ExpenseMapper.mapToExpenseDAO(expense));
       }
 

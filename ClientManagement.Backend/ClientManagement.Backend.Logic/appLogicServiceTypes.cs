@@ -27,6 +27,7 @@ namespace ClientManagement.Backend.Logic
 
       public bool insertServiceType(ServiceTypeDTO type)
       {
+         type.Name = stringFormatter(type.Name).ToString();
          return sc.AddType(Mapping.ServiceTypeMapper.MaptoServiceTypeDAO(type));
       }
 

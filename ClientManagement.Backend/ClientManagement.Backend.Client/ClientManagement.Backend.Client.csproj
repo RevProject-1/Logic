@@ -41,6 +41,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevTrends.WCFDataAnnotations, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WCFDataAnnotations.1.1.0\lib\net40\DevTrends.WCFDataAnnotations.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -68,6 +72,7 @@
     <Content Include="Properties\DataSources\ClientManagement.Backend.Logic.ServiceReference1.JobDAO.datasource" />
     <Content Include="Properties\DataSources\ClientManagement.Backend.Logic.ServiceReference1.ExpenseDAO.datasource" />
     <Content Include="Properties\DataSources\ClientManagement.Backend.Logic.ServiceReference1.JobExpenseDAO.datasource" />
+    <Content Include="packages.config" />
     <None Include="Service References\ServiceReference1\Service1.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />

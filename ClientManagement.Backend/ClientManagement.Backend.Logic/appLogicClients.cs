@@ -102,6 +102,13 @@ namespace ClientManagement.Backend.Logic
       /// <returns>true if succuss, else false</returns>
       public bool insertClients(ClientDTO client)
       {
+         
+         client.Email = client.Email.ToLower();
+         client.Name = stringFormatter(client.Name).ToString();
+         client.Address.Street = stringFormatter(client.Address.Street).ToString();
+         client.Address.City = stringFormatter(client.Address.City).ToString();         
+         client.Address.State=client.Address.State.ToUpper();
+         client.PhoneNumber = phoneFormatter(client.PhoneNumber).ToString();
          return sc.AddClient(Mapping.ClientMapper.MapToClientDAO(client));
       }
 
@@ -122,6 +129,12 @@ namespace ClientManagement.Backend.Logic
       /// <returns>true if success, else false</returns>
       public bool updateClient(ClientDTO client)
       {
+         client.Email = client.Email.ToLower();
+         client.Name = stringFormatter(client.Name).ToString();
+         client.Address.Street = stringFormatter(client.Address.Street).ToString();
+         client.Address.City = stringFormatter(client.Address.City).ToString();
+         client.Address.State = client.Address.State.ToUpper();
+         client.PhoneNumber = phoneFormatter(client.PhoneNumber).ToString();
          return sc.UpdateClient(Mapping.ClientMapper.MapToClientDAO(client));
       }
    }

@@ -43,8 +43,10 @@ namespace ClientManagement.Backend.Logic
             expensetotal += item.Cost;
          }
          var subtotal = (job.type.Rate * job.Hours) + expensetotal;
-         invoice.totalExpenses = expensetotal.ToString();
-         invoice.subTotal = subtotal.ToString();
+         invoice.totalExpenses = Decimal.Round(expensetotal,2);
+         invoice.subTotal = Decimal.Round(subtotal.GetValueOrDefault(),2);
+         invoice.totalExpensesString = "$"+expensetotal.ToString();
+         invoice.subTotalString = "$"+subtotal.ToString();
          invoice.Notes = job.Notes;
          return invoice;
       }

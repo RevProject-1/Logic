@@ -51,6 +51,12 @@ namespace ClientManagement.Backend.Logic
       /// <returns>true if insert success, else returns false</returns>
       public bool insertAspNetUsers(AspNetUsers user)
       {
+         user.Email = user.Email.ToLower();
+         user.Name = stringFormatter(user.Name).ToString();
+         user.StreetAddress = stringFormatter(user.StreetAddress).ToString();
+         user.City = stringFormatter(user.City).ToString();
+         user.State = user.State.ToUpper();
+         user.PhoneNumber = phoneFormatter(user.PhoneNumber).ToString();
          return sc.Register(Mapping.AspNetUserMapper.mapToUserDAO(user));
       }
 

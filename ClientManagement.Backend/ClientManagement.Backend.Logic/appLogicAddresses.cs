@@ -119,5 +119,41 @@ namespace ClientManagement.Backend.Logic
 
       //public bool updateAddress(AddressDTO address);
 
+      public StringBuilder phoneFormatter(string number)
+      {
+         StringBuilder ph = new StringBuilder();
+         foreach (var item in number)
+         {
+            if(Char.IsDigit(item))
+            {
+               ph.Append(item);
+            }
+         }
+         ph.Insert(0, '(');
+         ph.Insert(4, ')');
+         ph.Insert(5, ' ');
+         ph.Insert(9, '-');
+         return ph;
+      }
+      public StringBuilder stringFormatter(string st)
+      {
+         var citylist = st.Split(' ');
+         StringBuilder sb = new StringBuilder();
+         string first;
+         string rest;
+         foreach (var item in citylist)
+         {
+            first = item.Substring(0, 1);
+            rest = item.Substring(1).ToLower();
+            sb.Append(first.ToUpper());
+            sb.Append(rest);
+            if (!item.Equals(citylist.Last()))
+            {
+               sb.Append(' ');
+            }
+
+         }
+         return sb;
+      }
    }
 }
